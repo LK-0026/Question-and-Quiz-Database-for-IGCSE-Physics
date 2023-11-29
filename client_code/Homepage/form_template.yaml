@@ -1,0 +1,31 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: outlined_card_1
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'NGVVFU,GWRLOL'}
+    components:
+    - name: home_title
+      properties: {text: Quiz and Question Database, align: center, bold: true}
+      type: Label
+      layout_properties: {grid_position: 'BOUFAH,BXZMZI'}
+    - name: button_question
+      properties: {text: Question Bank, role: outlined-button}
+      type: Button
+      layout_properties: {grid_position: 'NWQUSF,FXYVLY'}
+    - name: button_quiz
+      properties: {text: Quiz Bank, role: outlined-button}
+      type: Button
+      layout_properties: {grid_position: 'AIFNTG,RKPZEB'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}

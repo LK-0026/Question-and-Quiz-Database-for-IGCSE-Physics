@@ -1,0 +1,23 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: outlined_card_1
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'RZRVJC,BENYLO'}
+    components:
+    - name: label_1
+      properties: {text: Question Bank}
+      type: Label
+      layout_properties: {grid_position: 'SIWUWN,MYYYST'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}

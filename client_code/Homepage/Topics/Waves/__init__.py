@@ -1,12 +1,10 @@
-from ._anvil_designer import HomepageTemplate
+from ._anvil_designer import WavesTemplate
 from anvil import *
 import anvil.server
 
-class Homepage(HomepageTemplate):
+class Waves(WavesTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
+
     # Any code you write here will run before the form opens.
-  def button_question_click(self, **event_args):
-    open_form('Homepage.Topics')

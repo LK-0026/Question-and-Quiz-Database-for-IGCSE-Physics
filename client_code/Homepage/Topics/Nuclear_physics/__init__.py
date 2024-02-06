@@ -1,8 +1,8 @@
-from ._anvil_designer import WavesTemplate
+from ._anvil_designer import Nuclear_physicsTemplate
 from anvil import *
 import anvil.server
 
-class Waves(WavesTemplate):
+class Nuclear_physics(Nuclear_physicsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

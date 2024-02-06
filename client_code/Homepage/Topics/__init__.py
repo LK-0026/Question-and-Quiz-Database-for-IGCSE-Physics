@@ -9,7 +9,7 @@ class Topics(TopicsTemplate):
     option = None
 
     # Any code you write here will run before the form opens.
-    self.topics = ["Motion, Forces, Energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
+    self.topics = ["Motion, Forces and Energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
     self.topics_list.items = self.topics
   def back_button_click(self, **event_args):
     open_form('Homepage')
@@ -20,14 +20,18 @@ class Topics(TopicsTemplate):
 
   def enter_click(self, **event_args):
     option = self.topics_list.selected_value
-    if option == "Motion, Forces, Energy":
-      open_form('Homepage.Topics.Motion_Forces_Energy')
+    if option == "Motion, Forces and Energy":
+      open_form('Homepage.Topics.Motion_Forces_and_Energy')
     elif option == "Thermal physics":
-      open_form('Homepage.Topics.Thermal_Energy')
-    elif option == "Thermal physics":
-      open_form('Homepage.Topics.Waves')
+      open_form('Homepage.Topics.Thermal_physics')
     elif option == "Waves":
-      open_form('Homepage.Topics.Thermal_Energy')
+      open_form('Homepage.Topics.Waves')
+    elif option == "Electricity and magnetism":
+      open_form('Homepage.Topics.Electricity_and_Magnetism')
+    elif option == "Nuclear physics":
+      open_form('Homepage.Topics.Nuclear_physics')
+    elif option == "Space physics":
+      open_form('Homepage.Topics.Space_physics')
 
 
 

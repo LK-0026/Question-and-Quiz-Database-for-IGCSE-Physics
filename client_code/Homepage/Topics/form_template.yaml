@@ -11,12 +11,13 @@ components:
   - name: outlined_card_1
     properties: {role: outlined-card}
     type: ColumnPanel
-    layout_properties: {grid_position: 'RGORXL,BTJSII', full_width_row: true}
+    layout_properties: {grid_position: 'NZLPWZ,VLMGWS'}
     components:
-    - name: button_1
+    - name: back_button
       properties: {text: Back, visible: true, enabled: true, align: left, italic: true}
       type: Button
       layout_properties: {grid_position: 'XIVPLP,PQCDMY'}
+      event_bindings: {click: back_button_click}
     - name: label_1
       properties: {align: center, text: Topics, bold: true, spacing_below: large}
       type: Label
@@ -29,6 +30,10 @@ components:
         spacing_below: large
       type: DropDown
       layout_properties: {grid_position: 'UUATAU,XLUMGR'}
+    - name: spacer_1
+      properties: {height: '35'}
+      type: Spacer
+      layout_properties: {grid_position: 'LFVERP,VWFCOB'}
     - name: button_submit
       properties: {text: Submit, spacing_above: large}
       type: Button

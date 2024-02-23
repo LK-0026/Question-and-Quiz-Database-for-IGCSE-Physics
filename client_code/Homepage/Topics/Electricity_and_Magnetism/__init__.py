@@ -1,5 +1,8 @@
 from ._anvil_designer import Electricity_and_MagnetismTemplate
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
 
 class Electricity_and_Magnetism(Electricity_and_MagnetismTemplate):

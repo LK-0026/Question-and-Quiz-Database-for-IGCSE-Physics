@@ -10,4 +10,15 @@ name: Question and Quiz Database
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
 startup_form: null
+db_schema:
+  table_2:
+    client: none
+    server: full
+    columns: []
+    title: Table 2
+  motion_forces_energy_questions:
+    client: none
+    server: full
+    columns: []
+    title: Motion_Forces_Energy_Questions
 renamed: true

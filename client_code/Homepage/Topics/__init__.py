@@ -4,6 +4,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import Questions
 
 class Topics(TopicsTemplate):
   def __init__(self, **properties):
@@ -17,14 +18,11 @@ class Topics(TopicsTemplate):
   def back_button_click(self, **event_args):
     open_form('Homepage')
 
-  def topics_list_change(self, **event_args):
-    """This method is called when an item is selected"""
-    option = self.topics_list.selected_value
-
   def enter_click(self, **event_args):
-    
-    open_form('Homepage.Topics.Thermal_physics')
     option = self.topics_list.selected_value
+    open_form('Homepage.Topics.Questions')
+    next_form = Questions.Questions(title=selected_option)
+    
     
 
 

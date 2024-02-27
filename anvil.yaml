@@ -19,6 +19,24 @@ db_schema:
   motion_forces_energy_questions:
     client: none
     server: full
-    columns: []
+    columns:
+    - name: text
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: image
+      admin_ui: {width: 200, order: 1}
+      type: media
+    - name: option1
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: option2
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: option3
+      admin_ui: {width: 200, order: 4}
+      type: string
+    - name: option4
+      admin_ui: {width: 200, order: 5}
+      type: string
     title: Motion_Forces_Energy_Questions
 renamed: true

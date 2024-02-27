@@ -22,19 +22,10 @@ class Topics(TopicsTemplate):
     option = self.topics_list.selected_value
 
   def enter_click(self, **event_args):
+    
+    open_form('Homepage.Topics.Thermal_physics')
     option = self.topics_list.selected_value
-    if option == "Motion, Forces and Energy":
-      open_form('Homepage.Topics.Motion_Forces_and_Energy')
-    elif option == "Thermal physics":
-      open_form('Homepage.Topics.Thermal_physics')
-    elif option == "Waves":
-      open_form('Homepage.Topics.Waves')
-    elif option == "Electricity and magnetism":
-      open_form('Homepage.Topics.Electricity_and_Magnetism')
-    elif option == "Nuclear physics":
-      open_form('Homepage.Topics.Nuclear_physics')
-    elif option == "Space physics":
-      open_form('Homepage.Topics.Space_physics')
+    
 
 
 

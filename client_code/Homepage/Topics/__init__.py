@@ -10,7 +10,7 @@ class Topics(TopicsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    option = None
+    topic = None
 
     # Any code you write here will run before the form opens.
     self.topics = ["Motion, Forces and Energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
@@ -20,7 +20,7 @@ class Topics(TopicsTemplate):
 
   def enter_click(self, **event_args):
     topic = self.topics_list.selected_value
-    open_form('Homepage.Topics.Questions',title=option)
+    open_form('Homepage.Topics.Questions',title=topic)
     
     
 

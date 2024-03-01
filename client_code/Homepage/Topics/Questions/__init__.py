@@ -6,7 +6,7 @@ from anvil.tables import app_tables
 import anvil.server
 
 class Questions(QuestionsTemplate):
-  def __init__(self, topic,**properties):
+  def __init__(self, topic, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.title.text = topic

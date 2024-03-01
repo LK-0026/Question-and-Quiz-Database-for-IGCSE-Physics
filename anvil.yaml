@@ -11,11 +11,6 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
   server_spec: null}
 startup_form: null
 db_schema:
-  table_2:
-    client: none
-    server: full
-    columns: []
-    title: Table 2
   questions:
     client: none
     server: full
@@ -37,6 +32,18 @@ db_schema:
       type: string
     - name: option4
       admin_ui: {width: 200, order: 5}
+      type: string
+    - name: correctAnswer
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: isUsed
+      admin_ui: {order: 7, width: 216.4}
+      type: bool
+    - name: subtopic
+      admin_ui: {order: 1.5, width: 200}
+      type: string
+    - name: topic
+      admin_ui: {order: -1, width: 200}
       type: string
     title: questions
 renamed: true

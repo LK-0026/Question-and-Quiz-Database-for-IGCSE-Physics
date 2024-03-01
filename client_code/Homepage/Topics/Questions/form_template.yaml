@@ -22,10 +22,6 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'WZTKSE,SSRZWC'}
-  - name: repeating_panel_1
-    properties: {item_template: Homepage.Topics.Questions.ItemTemplate1}
-    type: RepeatingPanel
-    layout_properties: {grid_position: 'BFLGKO,TEUSAS'}
   - name: timer_1
     properties: {}
     type: Timer

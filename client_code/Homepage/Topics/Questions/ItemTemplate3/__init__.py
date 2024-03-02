@@ -11,3 +11,7 @@ class ItemTemplate3(ItemTemplate3Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    self.repeating_panel = RepeatingPanel()
+    self.repeating_panel.items = app_tables.questions.search()
+    self.label_subtopic.text = self.item['subtopic']
+    

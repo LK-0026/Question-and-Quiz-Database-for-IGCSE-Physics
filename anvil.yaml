@@ -12,7 +12,7 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 startup_form: null
 db_schema:
   questions:
-    client: none
+    client: full
     server: full
     columns:
     - name: text

@@ -11,16 +11,15 @@ class Topics(TopicsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     option = None
-
     # Any code you write here will run before the form opens.
-    self.topics = ["Motion, Forces and Energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
+    self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
     self.topics_list.items = self.topics
   def back_button_click(self, **event_args):
     open_form('Homepage')
 
   def enter_click(self, **event_args):
     option = self.topics_list.selected_value
-    open_form('Homepage.Topics.Questions', topic=option)
+    open_form('Homepage.Topics.Questions', topicChosen=option)
     
     
 

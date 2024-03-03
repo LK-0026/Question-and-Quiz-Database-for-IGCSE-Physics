@@ -16,6 +16,8 @@ class Questions(QuestionsTemplate):
                       'Electricity and magnetism':[],
                       'Nuclear physics':[],
                       'Space physics':[]}
+    self.drop_down_subtopics.items = ["All"] + self.subtopics[topicChosen]
+    
     # Any code you write here will run before the form opens.
   def back_button_click(self, **event_args):
     open_form('Homepage.Topics')

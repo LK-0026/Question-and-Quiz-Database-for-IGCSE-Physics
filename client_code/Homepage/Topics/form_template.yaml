@@ -9,7 +9,8 @@ components:
   layout_properties: {slot: default}
   components:
   - name: back_button
-    properties: {text: Back, visible: true, enabled: true, align: left, italic: true}
+    properties: {text: Back, visible: true, enabled: true, align: left, italic: true,
+      role: filled-button}
     type: Button
     layout_properties: {grid_position: 'COSLDC,FGQYKH'}
     event_bindings: {click: back_button_click}

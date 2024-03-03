@@ -21,12 +21,6 @@ components:
       font_size: 20}
     type: Label
     layout_properties: {grid_position: 'WZTKSE,NGJDSM'}
-  - name: label_1
-    properties: {text: 'Subtopic:', underline: false, italic: false, align: right,
-      bold: false, icon: 'fa:filter', icon_align: left, foreground: '#0d92f8'}
-    type: Label
-    layout_properties: {grid_position: 'WZTKSE,OXGJUP', full_width_row: false}
-    data_bindings: []
   - name: drop_down_subtopics
     properties:
       include_placeholder: false
@@ -34,6 +28,13 @@ components:
       tooltip: 'Select a subtopic:'
     type: DropDown
     layout_properties: {grid_position: 'WZTKSE,SUTPIE'}
+  - name: button_filter
+    properties: {text: Filter, icon: 'fa:filter', icon_align: left, italic: false,
+      underline: false, bold: true, role: filled-button, background: '#2ac1f4'}
+    type: Button
+    layout_properties: {grid_position: 'WZTKSE,EPUBZL', row_background: '#0460d7',
+      full_width_row: false}
+    event_bindings: {click: button_filter_click}
   - name: repeating_panel_1
     properties: {item_template: Homepage.Topics.Questions.QuestionsList}
     type: RepeatingPanel

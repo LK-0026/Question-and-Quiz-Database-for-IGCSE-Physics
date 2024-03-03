@@ -16,8 +16,14 @@ class Questions(QuestionsTemplate):
                       'Electricity and magnetism':[],
                       'Nuclear physics':[],
                       'Space physics':[]}
-    self.drop_down_subtopics.items = ["All"] + self.subtopics[topicChosen]
+    self.drop_down_subtopics.items = ['All'] + self.subtopics[topicChosen]
     
     # Any code you write here will run before the form opens.
   def back_button_click(self, **event_args):
     open_form('Homepage.Topics')
+
+  def button_filter_click(self, **event_args):
+    if self.drop_down_subtopics.selected_value == 'All':
+      self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
+    else:
+      self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen, subtopic = self.drop_down_subtopics.selected_value)

@@ -1,32 +1,37 @@
 is_package: true
 container: {type: ColumnPanel}
 components:
-- name: label_subtopic
-  properties: {bold: true}
-  type: Label
-  layout_properties: {grid_position: 'JNFGIB,VDPVRE'}
-- name: label_questionText
-  properties: {}
-  type: Label
-  layout_properties: {grid_position: 'CDCTVU,XISIDE'}
-- name: image_question
-  properties: {visible: false}
-  type: Image
-  layout_properties: {grid_position: 'UAMHWI,LYHGQZ'}
-- name: label_option1
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'VSKCFP,RMWEOF', row_background: '', full_width_row: false}
-  event_bindings: {show: label_option1_show}
-- name: label_option2
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'VSKCFP,WEBPWX'}
-- name: label_option3
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'REHOXX,SWJYKJ'}
-- name: label_option4
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'REHOXX,THQLXM'}
+- name: outlined_card_1
+  properties: {role: outlined-card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'VHSBXX,XULDOS'}
+  components:
+  - name: label_subtopic
+    properties: {bold: true}
+    type: Label
+    layout_properties: {grid_position: 'ETDJIK,FQDCRF'}
+  - name: label_questionText
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'YCYLSH,HHYVKO'}
+  - name: image_question
+    properties: {visible: false}
+    type: Image
+    layout_properties: {grid_position: 'GLIOMF,FQVBHR'}
+  - name: label_option1
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'JIJRBG,OFNYIB'}
+    event_bindings: {show: label}
+  - name: label_option2
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'JIJRBG,TAEJWE'}
+  - name: label_option3
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'IJQYHU,GGVWBZ'}
+  - name: label_option4
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'IJQYHU,GGIONT'}

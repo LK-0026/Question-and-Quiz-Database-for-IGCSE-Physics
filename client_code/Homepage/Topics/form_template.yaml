@@ -26,8 +26,8 @@ components:
       spacing_below: large
       border: ''
     type: DropDown
-    layout_properties: {grid_position: 'GBNHVN,XHGBBI'}
-    event_bindings: {change: topics_list_change}
+    layout_properties: {grid_position: 'EHZSUT,RBWHCS'}
+    event_bindings: {}
   - name: spacer_1
     properties: {height: '20'}
     type: Spacer

@@ -4,6 +4,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import json
 
 class Questions(QuestionsTemplate):
   def __init__(self, topicChosen, **properties):
@@ -11,12 +12,15 @@ class Questions(QuestionsTemplate):
     self.init_components(**properties)
     self.label_title.text = topicChosen
     self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
+    '''
     self.subtopics = {'Motion, forces and energy': ['Motion','Energy, work and power'],
                       'Thermal physics':[],
                       'Waves':['Sound'],
                       'Electricity and magnetism':[],
                       'Nuclear physics':[],
-                      'Space physics':[]}
+                    'Space physics':[]}
+    '''
+    self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = ['All'] + self.subtopics[topicChosen]
     self.topicChosen = topicChosen
     

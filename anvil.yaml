@@ -47,11 +47,11 @@ db_schema:
       type: string
     title: questions
   subtopics:
-    client: none
+    client: full
     server: full
     columns:
     - name: topic
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {order: 0, width: 200}
       type: string
     - name: subtopics
       admin_ui: {order: 1, width: 770}

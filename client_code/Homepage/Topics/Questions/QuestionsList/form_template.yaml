@@ -22,7 +22,7 @@ components:
     properties: {align: center}
     type: Label
     layout_properties: {grid_position: 'JIJRBG,OFNYIB'}
-    event_bindings: {show: label}
+    event_bindings: {}
   - name: label_option2
     properties: {align: center}
     type: Label

@@ -46,4 +46,15 @@ db_schema:
       admin_ui: {order: -1, width: 200}
       type: string
     title: questions
+  subtopics:
+    client: none
+    server: full
+    columns:
+    - name: topic
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: subtopics
+      admin_ui: {order: 1, width: 770}
+      type: string
+    title: subtopics
 renamed: true

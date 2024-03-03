@@ -12,21 +12,12 @@ class Questions(QuestionsTemplate):
     self.init_components(**properties)
     self.label_title.text = topicChosen
     self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
-    '''
-    self.subtopics = {'Motion, forces and energy': ['Motion','Energy, work and power'],
-                      'Thermal physics':[],
-                      'Waves':['Sound'],
-                      'Electricity and magnetism':[],
-                      'Nuclear physics':[],
-                    'Space physics':[]}
-    '''
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = ['All'] + self.subtopics[topicChosen]
     self.topicChosen = topicChosen
+    self.drop_down_subtopicsRemoval.items = [''] + self.subtopics[topicChosen]
     
     # Any code you write here will run before the form opens.
-  def back_button_click(self, **event_args):
-    open_form('Homepage.Topics')
 
   def drop_down_subtopics_change(self, **event_args):
     """This method is called when an item is selected"""
@@ -37,4 +28,25 @@ class Questions(QuestionsTemplate):
 
   def button_addSubtopic_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.subtopics[self.topicChosen].append(self.text_box_addSubtopic.text)
+    if self.text_box_addSubtopic.text == "":
+      alert("You cannot enter this field blank")
+    elif self.text_box_addSubtopic.text in self.subtopics[self.topicChosen]:
+      alert("This subtopic already exists.")
+    else:
+      anvil.server.call('addSubtopic', self.topicChosen, self.text_box_addSubtopic.text)
+      self.drop_down_subtopics.items += [self.text_box_addSubtopic.text]
+      self.drop_down_subtopicsRemoval.items += [self.text_box_addSubtopic.text]
+      self.text_box_addSubtopic.text = ''
+
+  def button_removeSubtopic_click(self, **event_args):
+    if self.drop_down_subtopicsRemoval.selected_value == '':
+      alert("You have to select a subtopic before it can be removed")
+    else:
+      c = confirm("Do you wish to delete the '" + self.drop_down_subtopicsRemoval.selected_value + "' subtopic?")
+      if c:
+        anvil.server.call('removeSubtopic',self.topicChosen,self.drop_down_subtopicsRemoval.selected_value)
+        self.drop_down_subtopics.items = ['All'] + self.subtopics[self.topicChosen]
+        self.drop_down_subtopicsRemoval.items = [''] + self.subtopics[self.topicChosen]
+
+  def back_button_click(self, **event_args):
+    open_form('Homepage.Topics')

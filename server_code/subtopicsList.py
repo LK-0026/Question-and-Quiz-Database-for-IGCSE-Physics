@@ -2,19 +2,12 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import logging
+import json
 
 subtopicsDict = {}
 for row in app_tables.subtopics.search():
-  subtopics = (json.loads(row['subtopics'])).strip('[]').split(',')
-
-  subtopicsList = None
-  for subT in subtopics:
-    subT.strip().strip('"')
+  subtopicsList = json.loads(row['subtopics'])
   subtopicsDict[row['topic']] = subtopicsList
-  
-logging.info("Subtopics dictionary: %s", subtopicsDict)
-
 # To allow anvil.server.call() to call functions here, we mark
 # them with @anvil.server.callable.
 # Here is an example - you can replace it with your own:
@@ -30,9 +23,11 @@ def addSubtopic(topic, newSubtopic):
   for row in app_tables.subtopics.search():
     if row['topic'] == topic:
       row['subtopics'] = json.dumps(subtopicList)
-      row.save()
-      break
 
-  
-
-
+@anvil.server.callable
+def removeSubtopic(topic, removedSubtopic):
+  subtopicList = subtopicsDict[topic]
+  subtopicList.remove(removedSubtopic)
+  for row in app_tables.subtopics.search():
+    if row['topic'] == topic:
+      row['subtopics'] = json.dumps(subtopicList)

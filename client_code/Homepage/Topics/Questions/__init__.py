@@ -22,7 +22,7 @@ class Questions(QuestionsTemplate):
   def back_button_click(self, **event_args):
     open_form('Homepage.Topics')
 
-  def button_filter_click(self, **event_args):
+  def button_filter_click(self, topicChosen, **event_args):
     if self.drop_down_subtopics.selected_value == 'All':
       self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
     else:

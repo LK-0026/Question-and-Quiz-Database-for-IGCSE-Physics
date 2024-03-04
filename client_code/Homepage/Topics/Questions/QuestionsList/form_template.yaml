@@ -9,7 +9,7 @@ components:
   - name: label_subtopic
     properties: {bold: true}
     type: Label
-    layout_properties: {grid_position: 'ETDJIK,FQDCRF'}
+    layout_properties: {grid_position: 'HSDHXN,SWFJFB'}
   - name: label_questionText
     properties: {}
     type: Label
@@ -35,3 +35,31 @@ components:
     properties: {align: center}
     type: Label
     layout_properties: {grid_position: 'IJQYHU,GGIONT'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'OABVTI,RPGQUV'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZSJSFY,HYDSJL'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZSJSFY,XDRTLF'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZSJSFY,KZHWXE'}
+  - name: button_editQuestion
+    properties: {text: Edit Question, role: null, background: '#ff8f33', foreground: 'theme:On
+        Primary'}
+    type: Button
+    layout_properties: {grid_position: 'ZSJSFY,JWJGJV'}
+  - name: button_deleteQuestion
+    properties: {text: ' Delete Question', role: null, foreground: 'theme:On Primary',
+      background: '#FF0000'}
+    type: Button
+    layout_properties: {grid_position: 'ZSJSFY,SMPZNN'}
+    data_bindings: []
+    event_bindings: {click: button_deleteQuestion_click}

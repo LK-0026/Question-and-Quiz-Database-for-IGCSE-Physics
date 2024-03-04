@@ -138,6 +138,16 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'MIVZKT,HTFJIG'}
+  - name: spacer_1_copy_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'GSZTIW,EQTMQC'}
+  - name: button_addQuestion
+    properties: {text: Add Question, role: filled-button, foreground: 'theme:On Primary',
+      background: '#00ff00'}
+    type: Button
+    layout_properties: {grid_position: 'SXBHKB,AWYDQJ'}
+    event_bindings: {click: button_addQuestion_click}
   data_bindings: []
 - type: FlowPanel
   properties: {}

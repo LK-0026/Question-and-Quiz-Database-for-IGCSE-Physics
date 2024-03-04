@@ -14,7 +14,7 @@ class Adding(AddingTemplate):
     # Any code you write here will run before the form opens
     self.label_topic.text = topicChosen
     self.subtopics = anvil.server.call('getSubtopics')
-    self.drop_down_subtopics.items = [''] + self.subtopics[topicChosen]
+    self.drop_down_subtopics.items = [""] + self.subtopics[topicChosen]
 
   def back_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -42,4 +42,19 @@ class Adding(AddingTemplate):
   def radio_button_option4_clicked(self, **event_args):
     self.correctAnswer = "option4"
 
+  def button_addQuestion_click(self, **event_args):
+    missingFields = ""
+    if self.drop_down_subtopics.selected_value == "":
+      missingFields += "     - Subtopic\n"
+    if self.text_area_questionText.text == "":
+      missingFields += "     - Question Text\n"
+    if self.text_area_option1.text == "" or self.text_area_option2.text == "" or self.text_area_option3.text == "" or self.text_area_option4.text == "":
+      missingFields += "     - Option(s)\n"
+    if self.correctAnswer == None:
+      missingFields += "     - Correct Answer"
 
+    missingFields.strip()
+    if missingFields != "":
+      alert("The following field(s) must be filled before a question can be added:\n" + missingFields)
+    else:
+      app_tables.questions.add_row(topic = self.topicChosen,subtopic = self.drop_down_subtopics.selected_value, )

@@ -10,6 +10,7 @@ class Adding(AddingTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.topicChosen = topicChosen
+    self.correctAnswer = None
     # Any code you write here will run before the form opens
     self.label_topic.text = topicChosen
     self.subtopics = anvil.server.call('getSubtopics')
@@ -26,6 +27,19 @@ class Adding(AddingTemplate):
 
   def button_removeImage_click(self, **event_args):
     self.image_question.source = None
-    self.file_loader_image.file = None
+    self.file_loader_image.clear()
     self.image_question.visible = False
+
+  def radio_button_option1_clicked(self, **event_args):
+    self.correctAnswer = "option1"
+
+  def radio_button_option2_clicked(self, **event_args):
+    self.correctAnswer = "option2"
+
+  def radio_button_option3_clicked(self, **event_args):
+    self.correctAnswer = "option3"
+
+  def radio_button_option4_clicked(self, **event_args):
+    self.correctAnswer = "option4"
+
 

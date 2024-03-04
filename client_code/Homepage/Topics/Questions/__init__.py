@@ -29,11 +29,12 @@ class Questions(QuestionsTemplate):
   def button_addSubtopic_click(self, **event_args):
     """This method is called when the button is clicked"""
     if self.text_box_addSubtopic.text == "":
-      alert("You cannot enter this field blank")
+      alert("You cannot leave this field blank")
     elif self.text_box_addSubtopic.text in self.subtopics[self.topicChosen]:
       alert("This subtopic already exists.")
     else:
       anvil.server.call('addSubtopic', self.topicChosen, self.text_box_addSubtopic.text)
+      alert("The '" + self.text_box_addSubtopic.text + "' subtopic has successfully been added.")
       self.drop_down_subtopics.items += [self.text_box_addSubtopic.text]
       self.drop_down_subtopicsRemoval.items += [self.text_box_addSubtopic.text]
       self.text_box_addSubtopic.text = ''

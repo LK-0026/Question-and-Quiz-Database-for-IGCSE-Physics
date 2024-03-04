@@ -25,6 +25,52 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'QXEURF,HVUDQV'}
+  - name: label_1
+    properties: {text: 'Topic: ', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'DMZARG,QAZYMX'}
+  - name: label_topic
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'DMZARG,OALOWX'}
+  - name: label_1_copy
+    properties: {text: 'Subtopic:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'DMZARG,XBGAIX'}
+  - name: drop_down_subtopic
+    properties: {}
+    type: DropDown
+    layout_properties: {grid_position: 'DMZARG,GKFBQZ'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'DMZARG,SDIDDW'}
+  - name: label_1_copy_2
+    properties: {text: '(Optional) Image: ', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'CZPCIC,OBEFQU'}
+  - name: file_loader_image
+    properties: {background: '#ff9924', foreground: 'theme:On Primary'}
+    type: FileLoader
+    layout_properties: {grid_position: 'CZPCIC,UCWZVI'}
+  - name: button_removeImage
+    properties: {text: Remove, visible: true, background: '#ff0000', icon: 'fa:trash',
+      foreground: 'theme:On Secondary'}
+    type: Button
+    layout_properties: {grid_position: 'CZPCIC,VNVUYN'}
+  - name: image_question
+    properties: {visible: false}
+    type: Image
+    layout_properties: {grid_position: 'MODZKX,RZCATZ'}
+  - name: label_1_copy_3
+    properties: {text: 'Option 1:', bold: true}
+    type: Label
+    layout_properties: {grid_position: '', full_width_row: false, row_background: ''}
+    data_bindings: []
+  - name: text_area_1
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: ',ECTTFI'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

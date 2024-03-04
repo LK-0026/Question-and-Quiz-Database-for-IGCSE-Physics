@@ -20,14 +20,10 @@ def getSubtopics():
 def addSubtopic(topic, newSubtopic):
   subtopicList = subtopicsDict[topic]
   subtopicList.append(newSubtopic)
-  for row in app_tables.subtopics.search():
-    if row['topic'] == topic:
-      row['subtopics'] = json.dumps(subtopicList)
-
+  app_tables.subtopics.get(topic = topic)['subtopics'] = json.dumps(subtopicList)
+  
 @anvil.server.callable
 def removeSubtopic(topic, removedSubtopic):
   subtopicList = subtopicsDict[topic]
   subtopicList.remove(removedSubtopic)
-  for row in app_tables.subtopics.search():
-    if row['topic'] == topic:
-      row['subtopics'] = json.dumps(subtopicList)
+  app_tables.subtopics.get(topic = topic)['subtopics'] = json.dumps(subtopicList)

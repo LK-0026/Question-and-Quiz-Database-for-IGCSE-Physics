@@ -57,4 +57,14 @@ class Adding(AddingTemplate):
     if missingFields != "":
       alert("The following field(s) must be filled before a question can be added:\n" + missingFields)
     else:
-      app_tables.questions.add_row(topic = self.topicChosen,subtopic = self.drop_down_subtopics.selected_value, )
+      app_tables.questions.add_row(
+        topic = self.topicChosen,
+        subtopic = self.drop_down_subtopics.selected_value,
+        text = self.text_area_questionText.text,
+        image = self.file_loader_image.file,
+        option1 = self.text_area_option1,
+        option2 = self.text_area_option2,
+        option3 = self.text_area_option3,
+        option4 = self.text_area_option4,
+        correctAnswer = self.correctAnswer,
+        isUsed = False)

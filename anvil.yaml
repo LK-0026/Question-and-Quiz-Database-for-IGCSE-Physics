@@ -40,7 +40,7 @@ db_schema:
       admin_ui: {order: 7, width: 216.4}
       type: bool
     - name: subtopic
-      admin_ui: {order: 1.5, width: 200}
+      admin_ui: {order: -0.5, width: 200}
       type: string
     - name: topic
       admin_ui: {order: -1, width: 200}

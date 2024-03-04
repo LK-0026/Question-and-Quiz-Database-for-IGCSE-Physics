@@ -51,3 +51,7 @@ class Questions(QuestionsTemplate):
 
   def back_button_click(self, **event_args):
     open_form('Homepage.Topics')
+
+  def outlined_button_manualAdd_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Homepage.Topics.Questions.Adding', topicChosen = self.topicChosen)

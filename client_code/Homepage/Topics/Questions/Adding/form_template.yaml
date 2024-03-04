@@ -50,6 +50,10 @@ components:
     properties: {}
     type: TextArea
     layout_properties: {grid_position: 'PEMQZM,QCKJSD'}
+  - name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WDPHUH,WFRLRB'}
   - name: label_1_copy_2
     properties: {text: '(Optional) Image: ', bold: true}
     type: Label
@@ -75,6 +79,10 @@ components:
     properties: {visible: false}
     type: Image
     layout_properties: {grid_position: 'FZOSVN,DLEGAB'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'AAZYGS,MKZEUV'}
   - name: label_option1
     properties: {text: 'Option 1:', bold: true, icon_align: left}
     type: Label

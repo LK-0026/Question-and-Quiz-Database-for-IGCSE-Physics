@@ -62,9 +62,11 @@ class Adding(AddingTemplate):
         subtopic = self.drop_down_subtopics.selected_value,
         text = self.text_area_questionText.text,
         image = self.file_loader_image.file,
-        option1 = self.text_area_option1,
-        option2 = self.text_area_option2,
-        option3 = self.text_area_option3,
-        option4 = self.text_area_option4,
+        option1 = self.text_area_option1.text,
+        option2 = self.text_area_option2.text,
+        option3 = self.text_area_option3.text,
+        option4 = self.text_area_option4.text,
         correctAnswer = self.correctAnswer,
         isUsed = False)
+      alert("Question has succesfully been added.")
+      open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)

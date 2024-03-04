@@ -10,15 +10,14 @@ class Questions(QuestionsTemplate):
   def __init__(self, topicChosen, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.topicChosen = topicChosen
     self.label_title.text = topicChosen
     self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = ['All'] + self.subtopics[topicChosen]
-    self.topicChosen = topicChosen
     self.drop_down_subtopicsRemoval.items = [''] + self.subtopics[topicChosen]
     
     # Any code you write here will run before the form opens.
-
   def drop_down_subtopics_change(self, **event_args):
     """This method is called when an item is selected"""
     if self.drop_down_subtopics.selected_value == 'All':

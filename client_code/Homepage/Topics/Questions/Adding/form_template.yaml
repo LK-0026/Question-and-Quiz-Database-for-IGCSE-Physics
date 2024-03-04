@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {wrap_on: mobile}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -37,40 +37,104 @@ components:
     properties: {text: 'Subtopic:', bold: true}
     type: Label
     layout_properties: {grid_position: 'DMZARG,XBGAIX'}
-  - name: drop_down_subtopic
+  - name: drop_down_subtopics
     properties: {}
     type: DropDown
     layout_properties: {grid_position: 'DMZARG,GKFBQZ'}
-  - name: spacer_3
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'DMZARG,SDIDDW'}
+  - name: label_questionText
+    properties: {text: 'Question Text:', bold: true, icon_align: left}
+    type: Label
+    layout_properties: {grid_position: 'PEMQZM,GYLUZJ'}
+    data_bindings: []
+  - name: text_area_questionText
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: 'PEMQZM,QCKJSD'}
   - name: label_1_copy_2
     properties: {text: '(Optional) Image: ', bold: true}
     type: Label
     layout_properties: {grid_position: 'CZPCIC,OBEFQU'}
   - name: file_loader_image
-    properties: {background: '#ff9924', foreground: 'theme:On Primary'}
+    properties: {background: '#ff9924', foreground: 'theme:On Primary', file_types: ''}
     type: FileLoader
     layout_properties: {grid_position: 'CZPCIC,UCWZVI'}
+    event_bindings: {change: file_loader_image_change}
+    data_bindings: []
   - name: button_removeImage
     properties: {text: Remove, visible: true, background: '#ff0000', icon: 'fa:trash',
       foreground: 'theme:On Secondary'}
     type: Button
     layout_properties: {grid_position: 'CZPCIC,VNVUYN'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'CZPCIC,FKDJCL'}
   - name: image_question
     properties: {visible: false}
     type: Image
     layout_properties: {grid_position: 'MODZKX,RZCATZ'}
-  - name: label_1_copy_3
-    properties: {text: 'Option 1:', bold: true}
+  - name: label_option1
+    properties: {text: 'Option 1:', bold: true, icon_align: left}
     type: Label
     layout_properties: {grid_position: ',undefined', full_width_row: false, row_background: ''}
     data_bindings: []
-  - name: text_area_1
+  - name: text_area_option1
     properties: {}
     type: TextArea
+    layout_properties: {grid_position: ',QKZCFW'}
+  - name: label_option2
+    properties: {text: 'Option 2:', bold: true, icon_align: left}
+    type: Label
     layout_properties: {grid_position: ',ECTTFI'}
+    data_bindings: []
+  - name: text_area_option2
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: ',LQGVHO'}
+  - name: label_option3
+    properties: {text: 'Option 3:', bold: true, icon_align: left}
+    type: Label
+    layout_properties: {grid_position: 'YTHLUO,KDSKDY'}
+    data_bindings: []
+  - name: text_area_option3
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: 'YTHLUO,XTBOFS'}
+  - name: label_option4
+    properties: {text: 'Option 4:', bold: true, icon_align: left}
+    type: Label
+    layout_properties: {grid_position: 'YTHLUO,ELHNMC'}
+    data_bindings: []
+  - name: text_area_option4
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: 'YTHLUO,IWMJAL'}
+  - name: label_option1_copy
+    properties: {text: 'Correct Answer: ', bold: true, icon_align: left}
+    type: Label
+    layout_properties: {grid_position: 'MIVZKT,HZZSCQ'}
+    data_bindings: []
+  - name: radio_button_option1
+    properties: {text: Option 1}
+    type: RadioButton
+    layout_properties: {grid_position: 'MIVZKT,MEFLMU'}
+  - name: radio_button_option2
+    properties: {text: Option 2}
+    type: RadioButton
+    layout_properties: {grid_position: 'MIVZKT,QGEAHO'}
+  - name: radio_button_option3
+    properties: {text: Option 3}
+    type: RadioButton
+    layout_properties: {grid_position: 'MIVZKT,NOSOYF'}
+  - name: radio_button_option4
+    properties: {text: Option 4}
+    type: RadioButton
+    layout_properties: {grid_position: 'MIVZKT,XOKFYA'}
+  - name: spacer_1_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'MIVZKT,HTFJIG'}
+  data_bindings: []
 - type: FlowPanel
   properties: {}
   name: navbar_links

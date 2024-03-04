@@ -11,12 +11,9 @@ class Adding(AddingTemplate):
     self.init_components(**properties)
     self.topicChosen = topicChosen
     # Any code you write here will run before the form opens
-    self.file_loader_image.accept = ".jpg, .jpeg, .png, .heic, .bmp"
     self.label_topic.text = topicChosen
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [''] + self.subtopics[topicChosen]
-  
-  
 
   def back_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -24,4 +21,11 @@ class Adding(AddingTemplate):
 
   def file_loader_image_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    pass
+    self.image_question.source = self.file_loader_image.file
+    self.image_question.visible = True
+
+  def button_removeImage_click(self, **event_args):
+    self.image_question.source = None
+    self.file_loader_image.file = None
+    self.image_question.visible = False
+

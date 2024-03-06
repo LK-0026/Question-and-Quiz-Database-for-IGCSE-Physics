@@ -5,14 +5,14 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Editing(EditingTemplat):
+class Editing(EditingTemplate):
   def __init__(self, topic, subtopic, questionText, image, option1, option2, option3, option4, correctAnswer, **properties):
     # Set Form properties and Data Bindings.
     self.init_components
     # Any code you write here will run before the form opens
     self.label_topic.text = topic
     self.subtopics = anvil.server.call('getSubtopics')
-    self.drop_down_subtopics.items = [""] + self.subtopics[topicChosen]
+    self.drop_down_subtopics.items = [""] + self.subtopics[topic]
     self.drop_down_subtopics.selected_value = subtopic
     self.text_area_questionText = questionText
     if image != None:

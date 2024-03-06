@@ -16,9 +16,9 @@ class Editing(EditingTemplate):
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [""] + self.subtopics[topic]
     self.drop_down_subtopics.selected_value = subtopic
-    questionTextBefore = self.text_area_questionText.text = questionText
+    self.questionTextBefore = self.text_area_questionText.text = questionText
     if image != None:
-      self.image_question.source = self.file_loader_image.file
+      self.image_question.source = image
       self.image_question.visible = True
     self.text_area_questionText.text = questionText
     self.text_area_option1.text = option1
@@ -72,7 +72,7 @@ class Editing(EditingTemplate):
     if missingFields != "":
       alert("The following field(s) must be filled before a question can be edited:\n" + missingFields)
     else:
-      rowToEdit = app_tables.questions.get(text = questionTextBefore)
+      rowToEdit = app_tables.questions.get(text = self.questionTextBefore)
       rowToEdit['subtopic'] = self.drop_down_subtopics.selected_value
       rowToEdit['text'] = self.text_area_questionText.text
       rowToEdit['image'] = self.file_loader_image.file

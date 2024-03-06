@@ -26,6 +26,8 @@ class QuestionsList(QuestionsListTemplate):
       self.label_option3.background = '#83f28f'
     elif self.item['correctAnswer'] == 'option4':
       self.label_option4.background = '#83f28f'
+
+    self.label_used
     # Any code you write here will run before the form opens.
 
   def button_deleteQuestion_click(self, **event_args):

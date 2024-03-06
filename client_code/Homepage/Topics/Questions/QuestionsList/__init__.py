@@ -34,3 +34,17 @@ class QuestionsList(QuestionsListTemplate):
     if c:
       self.item.delete()
       self.remove_from_parent()
+
+  def button_editQuestion_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Homepage.Topics.Questions.QuestionsList.Editing', 
+              topic = self.item['topic'], 
+              subtopic = self.item['subtopic'], 
+              questionText = self.item['text'], 
+              image = self.item['image'], 
+              option1 = self.item['option1'],
+              option2 = self.item['option2'],
+              option3 = self.item['option3'],
+              option4 = self.item['option4'],
+              correctAnswer = self.item['correctAnswer'])
+  

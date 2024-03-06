@@ -71,7 +71,7 @@ class Editing(EditingTemplate):
     missingFields.strip()
     if missingFields != "":
       alert("The following field(s) must be filled before a question can be edited:\n" + missingFields)
-    #else:
+    else:
       
       
   def back_button_click(self, **event_args):

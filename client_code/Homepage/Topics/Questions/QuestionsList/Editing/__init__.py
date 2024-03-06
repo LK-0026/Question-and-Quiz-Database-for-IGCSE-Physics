@@ -16,11 +16,11 @@ class Editing(EditingTemplate):
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [""] + self.subtopics[topic]
     self.drop_down_subtopics.selected_value = subtopic
-    self.text_area_questionText.text = questionText
+    questionTextBefore = self.text_area_questionText.text = questionText
     if image != None:
       self.image_question.source = self.file_loader_image.file
       self.image_question.visible = True
-    self.text_area_questoonText= questionText
+    self.text_area_questionText.text = questionText
     self.text_area_option1.text = option1
     self.text_area_option2.text = option2
     self.text_area_option3.text = option3
@@ -72,8 +72,18 @@ class Editing(EditingTemplate):
     if missingFields != "":
       alert("The following field(s) must be filled before a question can be edited:\n" + missingFields)
     else:
-      
-      
+      rowToEdit = app_tables.questions.get(text = questionTextBefore)
+      rowToEdit['subtopic'] = self.drop_down_subtopics.selected_value
+      rowToEdit['text'] = self.text_area_questionText.text
+      rowToEdit['image'] = self.file_loader_image.file
+      rowToEdit['option1'] = self.text_area_option1.text
+      rowToEdit['option2'] = self.text_area_option2.text
+      rowToEdit['option3'] = self.text_area_option3.text
+      rowToEdit['option4'] = self.text_area_option4.text
+      rowToEdit['correctAnswer'] = self.correctAnswer
+      alert("Changes have been saved")
+      open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
+  
   def back_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)

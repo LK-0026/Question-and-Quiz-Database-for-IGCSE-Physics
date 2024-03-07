@@ -8,12 +8,20 @@ import json
 
 class Questions(QuestionsTemplate):
   def __init__(self, topicChosen, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.topicChosen = topicChosen
+    
+    #Sets the tile of the page to the topic selected from the dropdown list from the previous form
     self.label_title.text = topicChosen
+    
+    #Form initially opens with all the question from the selected topic
+    #A search is done from the 'question' database to get all the questions with the selected topic 
     self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
+    
+    #Assigns a dictionary of the topic name as the key and a list of subtopics as the value
     self.subtopics = anvil.server.call('getSubtopics')
+    
+    #Sets the values of the dropdown boxes to contain the list of subtopics 
     self.drop_down_subtopics.items = ['All'] + self.subtopics[topicChosen]
     self.drop_down_subtopicsRemoval.items = [''] + self.subtopics[topicChosen]
     

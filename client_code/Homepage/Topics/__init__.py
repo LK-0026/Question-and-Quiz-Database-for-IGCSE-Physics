@@ -14,7 +14,7 @@ class Topics(TopicsTemplate):
     #Sets the items of the dropdown box to the list of topics
     self.topics_list.items = self.topics
 
-  #Function that opens the previous form
+  #Opens the previous when button is clicked
   def back_button_click(self, **event_args):
     open_form('Homepage')
 

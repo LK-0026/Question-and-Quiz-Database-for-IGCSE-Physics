@@ -7,7 +7,7 @@ from anvil.tables import app_tables
 
 class QuestionsList(QuestionsListTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+    #Setting up the values that are going to be displayed
     self.init_components(**properties)
     self.label_subtopic.text = "Subtopic: "+ self.item['subtopic']
     self.label_questionText.text = self.item['text']
@@ -18,6 +18,8 @@ class QuestionsList(QuestionsListTemplate):
     self.label_option2.text = self.item['option2']
     self.label_option3.text = self.item['option3']
     self.label_option4.text = self.item['option4']
+    
+    #Highlights the option that is correct green
     if self.item['correctAnswer'] == 'option1':
       self.label_option1.background = '#83f28f'
     elif self.item['correctAnswer'] == 'option2':
@@ -27,23 +29,29 @@ class QuestionsList(QuestionsListTemplate):
     elif self.item['correctAnswer'] == 'option4':
       self.label_option4.background = '#83f28f'
 
+
+    #Adjusts the label of the question if the question has or not been used in a quiz before
     if self.item['isUsed']:
       self.label_used.text = "❌ HAS been used"
       self.label_used.foreground = '#FF0000'
     else:
       self.label_used.text = "✅ NOT been used"
       self.label_used.foreground = '#00FF00'
-    # Any code you write here will run before the form opens.
 
+  #Deletes the question
+  #Function is called when button is clicked
   def button_deleteQuestion_click(self, **event_args):
-    """This method is called when the button is clicked"""
+    #User is asked for confirmation whether they want to delete the question
     c = confirm("Are you sure you want to delete this Question?")
     if c:
+      #Deletes the question from the question Bank and database itself
       self.item.delete()
       self.remove_from_parent()
 
+  #Edits the detail of the question
+  #Function is called when button is clicked
   def button_editQuestion_click(self, **event_args):
-    """This method is called when the button is clicked"""
+    #Opens a form which displays all the data of the selected question 
     open_form('Homepage.Topics.Questions.QuestionsList.Editing', 
               topic = self.item['topic'], 
               subtopic = self.item['subtopic'], 
@@ -54,4 +62,3 @@ class QuestionsList(QuestionsListTemplate):
               option3 = self.item['option3'],
               option4 = self.item['option4'],
               correctAnswer = self.item['correctAnswer'])
-  

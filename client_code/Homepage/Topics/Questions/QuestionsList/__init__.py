@@ -52,6 +52,7 @@ class QuestionsList(QuestionsListTemplate):
   #Function is called when button is clicked
   def button_editQuestion_click(self, **event_args):
     #Opens a form which displays all the data of the selected question 
+    questionID = self.item.get_id()
     open_form('Homepage.Topics.Questions.QuestionsList.Editing', 
               topic = self.item['topic'], 
               subtopic = self.item['subtopic'], 
@@ -61,4 +62,5 @@ class QuestionsList(QuestionsListTemplate):
               option2 = self.item['option2'],
               option3 = self.item['option3'],
               option4 = self.item['option4'],
-              correctAnswer = self.item['correctAnswer'])
+              correctAnswer = self.item['correctAnswer'],
+              questionID = questionID)

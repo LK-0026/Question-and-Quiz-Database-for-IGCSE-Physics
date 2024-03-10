@@ -8,17 +8,12 @@ import pytesseract
 
 class Adding(AddingTemplate):
   def __init__(self, topicChosen,**properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.topicChosen = topicChosen
     self.correctAnswer = None
     self.label_topic.text = topicChosen
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [""] + self.subtopics[topicChosen]
-
-  #Goes back to the previous form when clicked
-  def back_button_click(self, **event_args):
-    open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
 
   #When an image is uploaded, the image will be shown
   def file_loader_image_change(self, file, **event_args):
@@ -78,3 +73,12 @@ class Adding(AddingTemplate):
 
       #Goes back to the form showing all the question
       open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
+
+    def file_loader_OCR_change(self, file, **event_args):
+      imgOCR = 
+  
+  #Goes back to the previous form when clicked
+  def back_button_click(self, **event_args):
+    open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
+
+

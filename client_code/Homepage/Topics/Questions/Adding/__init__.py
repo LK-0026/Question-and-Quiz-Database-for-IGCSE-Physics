@@ -15,6 +15,10 @@ class Adding(AddingTemplate):
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [""] + self.subtopics[topicChosen]
 
+  def file_loader_OCR_change(self, file, **event_args):
+    imgOCR = self.file_loader_OCR
+    self.text_area_OCR = pytesseract.image_to_string(imgOCR)
+  
   #When an image is uploaded, the image will be shown
   def file_loader_image_change(self, file, **event_args):
     self.image_question.source = self.file_loader_image.file
@@ -73,9 +77,6 @@ class Adding(AddingTemplate):
 
       #Goes back to the form showing all the question
       open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
-
-    def file_loader_OCR_change(self, file, **event_args):
-      imgOCR = 
   
   #Goes back to the previous form when clicked
   def back_button_click(self, **event_args):

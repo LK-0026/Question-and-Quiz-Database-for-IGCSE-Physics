@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import pytesseract
 
 class Adding(AddingTemplate):
   def __init__(self, topicChosen,**properties):
@@ -11,25 +12,26 @@ class Adding(AddingTemplate):
     self.init_components(**properties)
     self.topicChosen = topicChosen
     self.correctAnswer = None
-    # Any code you write here will run before the form opens
     self.label_topic.text = topicChosen
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [""] + self.subtopics[topicChosen]
 
+  #Goes back to the previous form when clicked
   def back_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
     open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
 
+  #When an image is uploaded, the image will be shown
   def file_loader_image_change(self, file, **event_args):
-    """This method is called when a new file is loaded into this FileLoader"""
     self.image_question.source = self.file_loader_image.file
     self.image_question.visible = True
 
+  #The image will be removed when the button is clicked
   def button_removeImage_click(self, **event_args):
     self.image_question.source = None
     self.file_loader_image.clear()
     self.image_question.visible = False
 
+  #Functions below set's the correct answer to 1 of the 4 options
   def radio_button_option1_clicked(self, **event_args):
     self.correctAnswer = "option1"
 
@@ -42,7 +44,9 @@ class Adding(AddingTemplate):
   def radio_button_option4_clicked(self, **event_args):
     self.correctAnswer = "option4"
 
+  #Adds a question to the 'question' database when button is clicked and goes back to the form shoing all the questions
   def button_addQuestion_click(self, **event_args):
+    #Creates a string that will be used as an alert if any of the fields are missing
     missingFields = ""
     if self.drop_down_subtopics.selected_value == "":
       missingFields += "     - Subtopic\n"
@@ -52,10 +56,12 @@ class Adding(AddingTemplate):
       missingFields += "     - Option(s)\n"
     if self.correctAnswer == None:
       missingFields += "     - Correct Answer"
-
     missingFields.strip()
+
+    #If there are any missing fields when adding the question, an alert will pop up telling the user fields aren't filled yet
     if missingFields != "":
       alert("The following field(s) must be filled before a question can be added:\n" + missingFields)
+    #Adds a question to the 'question' database based on the fields entered
     else:
       app_tables.questions.add_row(
         topic = self.topicChosen,
@@ -69,4 +75,6 @@ class Adding(AddingTemplate):
         correctAnswer = self.correctAnswer,
         isUsed = False)
       alert("Question has succesfully been added.")
+
+      #Goes back to the form showing all the question
       open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)

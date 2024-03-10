@@ -38,7 +38,7 @@ class QuestionsList(QuestionsListTemplate):
       self.label_used.text = "✅ NOT been used"
       self.label_used.foreground = '#00FF00'
 
-  #Deletes the question
+  #Deletes the question from the 'question' database
   #Function is called when button is clicked
   def button_deleteQuestion_click(self, **event_args):
     #User is asked for confirmation whether they want to delete the question

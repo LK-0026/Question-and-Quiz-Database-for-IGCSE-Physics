@@ -7,4 +7,6 @@ from PIL import Image
 
 @anvil.server.callable
 def imageToText(uploaded):  
-    image = Image.open(uploaded)
+  configOCR = r'--oem 3 --psm 6'
+  textOCR = pytesseract.image_to_string(uplaaded, config=configOCR)
+  return textOCR

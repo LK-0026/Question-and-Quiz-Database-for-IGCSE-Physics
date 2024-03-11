@@ -4,7 +4,6 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-import pytesseract
 
 class Adding(AddingTemplate):
   def __init__(self, topicChosen,**properties):
@@ -17,7 +16,7 @@ class Adding(AddingTemplate):
 
   def file_loader_OCR_change(self, file, **event_args):
     imgOCR = self.file_loader_OCR
-    self.text_area_OCR = pytesseract.image_to_string(imgOCR)
+    self.text_area_OCR = anvil.server.call('imageToText', imgOCR)
   
   #When an image is uploaded, the image will be shown
   def file_loader_image_change(self, file, **event_args):

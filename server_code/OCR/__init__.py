@@ -6,5 +6,5 @@ import pytesseract
 from PIL import Image
 
 @anvil.server.callable
-def imageToText(uploaded)    
+def imageToText(uploaded):  
     image = Image.open(uploaded)

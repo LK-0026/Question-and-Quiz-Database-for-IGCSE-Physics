@@ -32,19 +32,15 @@ class Adding(AddingTemplate):
   #Functions below set's the correct answer to 1 of the 4 options
   def radio_button_option1_clicked(self, **event_args):
     self.correctAnswer = "option1"
-    print(self.correctAnswer)
 
   def radio_button_option2_clicked(self, **event_args):
     self.correctAnswer = "option2"
-    print(self.correctAnswer)
 
   def radio_button_option3_clicked(self, **event_args):
     self.correctAnswer = "option3"
-    print(self.correctAnswer)
 
   def radio_button_option4_clicked(self, **event_args):
     self.correctAnswer = "option4"
-    print(self.correctAnswer)
 
   #Adds a question to the 'question' database when button is clicked and goes back to the form shoing all the questions
   def button_addQuestion_click(self, **event_args):
@@ -84,5 +80,3 @@ class Adding(AddingTemplate):
   #Goes back to the previous form when clicked
   def back_button_click(self, **event_args):
     open_form('Homepage.Topics.Questions', topicChosen = self.topicChosen)
-
-

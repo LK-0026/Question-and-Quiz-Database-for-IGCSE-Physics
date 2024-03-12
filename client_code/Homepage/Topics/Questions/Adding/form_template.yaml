@@ -167,10 +167,11 @@ components:
     type: RadioButton
     layout_properties: {grid_position: 'MIVZKT,PQMCBD'}
     event_bindings: {clicked: radio_button_option3_clicked}
-  - name: radio_button_2
+  - name: radio_button_option4
     properties: {text: Option 4}
     type: RadioButton
     layout_properties: {grid_position: 'MIVZKT,JNAQZU'}
+    event_bindings: {clicked: radio_button_option4_clicked}
   - name: spacer_1_copy
     properties: {height: 32}
     type: Spacer

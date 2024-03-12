@@ -9,6 +9,10 @@ class Homepage(HomepageTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
     
-  #Open the Question Bank section of the program
+  #Opens the Question Bank section of the program
   def button_question_click(self, **event_args):
     open_form('Homepage.Topics')
+
+  #Opens the Quiz Bank section of the program
+  def button_quiz_click(self, **event_args):
+    open_form('Homepage.Quizzes')

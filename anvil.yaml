@@ -57,4 +57,16 @@ db_schema:
       admin_ui: {order: 1, width: 770}
       type: string
     title: subtopics
+  quizzes:
+    client: none
+    server: full
+    columns:
+    - name: quizName
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: questions
+      admin_ui: {width: 200, order: 1}
+      type: link_multiple
+      target: questions
+    title: quizzes
 renamed: true

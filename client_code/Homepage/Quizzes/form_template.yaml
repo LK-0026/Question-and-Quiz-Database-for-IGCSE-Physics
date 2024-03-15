@@ -33,6 +33,7 @@ components:
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'HDZGXZ,YFZSZI'}
+    event_bindings: {pressed_enter: text_box_searchQuiz_pressed_enter}
   - name: outlined_card_1
     properties: {role: outlined-card}
     type: ColumnPanel

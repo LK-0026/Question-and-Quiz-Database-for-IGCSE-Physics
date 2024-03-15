@@ -9,7 +9,12 @@ class Quizzes(QuizzesTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.repeating_panel_1.items = app_tables.quizzes.search()
 
   #Goes back to the previous form
   def back_button_click(self, **event_args):
     open_form('Homepage')
+
+  #Searches for quizzes 
+  def text_box_searchQuiz_pressed_enter(self, **event_args):
+    

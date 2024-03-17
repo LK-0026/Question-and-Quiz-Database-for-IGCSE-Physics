@@ -4,52 +4,52 @@ components:
 - name: outlined_card_1
   properties: {role: outlined-card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'VHSBXX,XULDOS'}
+  layout_properties: {grid_position: 'CJKRUL,WGOFDQ'}
   components:
   - name: label_topic
     properties: {bold: false, italic: true}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG HSDHXN,VQISNV'}
+    layout_properties: {grid_position: 'HSDHXN,VQISNV'}
   - name: label_subtopic
     properties: {bold: false, italic: true}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG HSDHXN,SWFJFB'}
+    layout_properties: {grid_position: 'HSDHXN,SWFJFB'}
   - name: label_used
     properties: {align: right}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG HSDHXN,QBGNAM'}
+    layout_properties: {grid_position: 'HSDHXN,QBGNAM'}
+  - name: image_question
+    properties: {visible: false}
+    type: Image
+    layout_properties: {grid_position: 'BZXPGV,ZOEJCV'}
   - name: label_questionText
     properties: {}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG YCYLSH,HHYVKO'}
+    layout_properties: {grid_position: 'YCYLSH,HHYVKO'}
   - name: label_option1
     properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG JIJRBG,OFNYIB'}
+    layout_properties: {grid_position: 'JIJRBG,OFNYIB'}
     event_bindings: {}
   - name: label_option2
     properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG JIJRBG,TAEJWE'}
+    layout_properties: {grid_position: 'JIJRBG,TAEJWE'}
   - name: label_option3
     properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG IJQYHU,GGVWBZ'}
+    layout_properties: {grid_position: 'IJQYHU,GGVWBZ'}
   - name: label_option4
     properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG IJQYHU,GGIONT'}
+    layout_properties: {grid_position: 'IJQYHU,GGIONT'}
   - name: spacer_4
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG OABVTI,RPGQUV'}
-  - name: image_question
-    properties: {visible: false}
-    type: Image
-    layout_properties: {grid_position: 'BMLXOK,GZEFXL'}
+    layout_properties: {grid_position: 'OABVTI,RPGQUV'}
   - name: button_addToQuiz
     properties: {text: Add to Quiz, role: null, background: '#ff8f33', foreground: 'theme:On
         Primary'}
     type: Button
-    layout_properties: {grid_position: 'BMLXOK,GLMMEG ZSJSFY,JWJGJV'}
+    layout_properties: {grid_position: 'ZSJSFY,JWJGJV'}
     event_bindings: {click: button_addToQuiz_click}

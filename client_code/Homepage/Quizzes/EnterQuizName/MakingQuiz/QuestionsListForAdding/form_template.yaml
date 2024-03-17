@@ -7,11 +7,11 @@ components:
   layout_properties: {grid_position: 'CJKRUL,WGOFDQ'}
   components:
   - name: label_topic
-    properties: {bold: false, italic: true}
+    properties: {bold: true, italic: false, underline: false}
     type: Label
     layout_properties: {grid_position: 'HSDHXN,VQISNV'}
   - name: label_subtopic
-    properties: {bold: false, italic: true}
+    properties: {bold: true, italic: false, foreground: '#ff0000'}
     type: Label
     layout_properties: {grid_position: 'HSDHXN,SWFJFB'}
   - name: label_used

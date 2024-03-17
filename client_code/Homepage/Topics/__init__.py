@@ -21,7 +21,7 @@ class Topics(TopicsTemplate):
   #Opens the tab which contains all the question from the specific topics
   #A parameter which contains the selected topic from the dropdown box is passed into the next form
   def button_enter_click(self, **event_args):
-    open_form('Homepage.Quizzes.EnteringQuizName.MakingQuiz', topicChosen = self.topics_list.selected_value)
+    open_form('Homepage.Topics.Questions', topicChosen = self.drop_down_topicsList.selected_value)
     
     
 

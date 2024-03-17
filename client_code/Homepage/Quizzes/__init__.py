@@ -22,5 +22,9 @@ class Quizzes(QuizzesTemplate):
       if self.text_box_searchQuiz.text.lower() in row['quizName'].lower():
         rowsFound.append(row)
     
+    if len(rowsFound) == 0:
+      self.label_noResults.visible = True
+    else:
+      self.label_noResults.visible = False
     self.repeating_panel_quizzesList.items = rowsFound
         

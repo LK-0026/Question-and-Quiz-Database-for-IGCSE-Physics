@@ -21,10 +21,10 @@ components:
       font_size: 20, role: headline}
     type: Label
     layout_properties: {grid_position: 'OOHPLA,WSCUEK'}
-  - name: spacer_1
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'OOHPLA,ATSYKR'}
+  - name: button_newQuiz
+    properties: {text: New Quiz, role: outlined-button}
+    type: Button
+    layout_properties: {grid_position: 'OOHPLA,OPMXAC'}
   - name: label_1
     properties: {bold: true, text: 'Search: ', icon: 'fa:search'}
     type: Label
@@ -43,6 +43,11 @@ components:
       properties: {item_template: Homepage.Quizzes.QuizzesList, visible: true}
       type: RepeatingPanel
       layout_properties: {grid_position: 'PZBXJQ,DRUWKW'}
+    - name: label_noResults
+      properties: {align: center, text: No Results Found, foreground: '#c2c2c2', bold: false,
+        underline: false, font_size: 20, italic: true, visible: false}
+      type: Label
+      layout_properties: {grid_position: 'XMVWBA,SIFPVM'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

@@ -12,7 +12,7 @@ class Topics(TopicsTemplate):
     #List which contains all the topics in the Question Bank
     self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
     #Sets the items of the dropdown box to the list of topics
-    self.topics_list.items = self.topics
+    self.drop_down_topicsList.items = self.topics
 
   #Opens the previous when button is clicked
   def back_button_click(self, **event_args):
@@ -20,8 +20,8 @@ class Topics(TopicsTemplate):
 
   #Opens the tab which contains all the question from the specific topics
   #A parameter which contains the selected topic from the dropdown box is passed into the next form
-  def enter_click(self, **event_args):
-    open_form('Homepage.Topics.Questions', topicChosen = self.topics_list.selected_value)
+  def button_enter_click(self, **event_args):
+    open_form('Homepage.Quizzes.EnteringQuizName.MakingQuiz', topicChosen = self.topics_list.selected_value)
     
     
 

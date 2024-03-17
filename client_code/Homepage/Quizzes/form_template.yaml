@@ -22,9 +22,11 @@ components:
     type: Label
     layout_properties: {grid_position: 'OOHPLA,WSCUEK'}
   - name: button_newQuiz
-    properties: {text: New Quiz, role: outlined-button}
+    properties: {text: New Quiz, role: outlined-button, align: right, background: '#ffbe0a',
+      spacing_above: medium, foreground: 'theme:On Primary'}
     type: Button
     layout_properties: {grid_position: 'OOHPLA,OPMXAC'}
+    event_bindings: {click: button_newQuiz_click}
   - name: label_1
     properties: {bold: true, text: 'Search: ', icon: 'fa:search'}
     type: Label

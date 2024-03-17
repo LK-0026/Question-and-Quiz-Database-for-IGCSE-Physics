@@ -17,7 +17,7 @@ class Questions(QuestionsTemplate):
     #Form initially opens with all the question from the selected topic
     #A search is done from the 'question' database to get all the questions with the selected topic
     #Repeating panel loops through each data that will be displayed from database
-    self.repeating_panel_1.items = app_tables.questions.search(topic = topicChosen)
+    self.repeating_panel_questionsList.items = app_tables.questions.search(topic = topicChosen)
     
     #Assigns a dictionary of the topic name as the key and a list of subtopics as the value
     self.subtopics = anvil.server.call('getSubtopics')

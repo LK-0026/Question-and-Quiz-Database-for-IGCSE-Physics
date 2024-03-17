@@ -27,4 +27,8 @@ class Quizzes(QuizzesTemplate):
     else:
       self.label_noResults.visible = False
     self.repeating_panel_quizzesList.items = rowsFound
+
+  def button_newQuiz_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Homepage.Quizzes.EnterQuizName')
         

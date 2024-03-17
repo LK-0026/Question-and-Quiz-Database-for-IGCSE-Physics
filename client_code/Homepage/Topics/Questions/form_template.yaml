@@ -85,10 +85,6 @@ components:
     type: Button
     layout_properties: {grid_position: 'NUPLKC,KTTCNJ'}
     event_bindings: {click: outlined_button_manualAdd_click}
-  - name: outlined_button_2
-    properties: {text: outlined_button_2, role: outlined-button}
-    type: Button
-    layout_properties: {grid_position: 'NUPLKC,YXWVBU'}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
@@ -97,14 +93,10 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'NUPLKC,CPMUDN'}
-  - name: repeating_panel_1
+  - name: repeating_panel_questionsList
     properties: {item_template: Homepage.Topics.Questions.QuestionsList}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TXVLUF,CYEECH'}
-  - name: timer_1
-    properties: {}
-    type: Timer
-    layout_properties: {grid_position: 'TBLECY,SNLEMD'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

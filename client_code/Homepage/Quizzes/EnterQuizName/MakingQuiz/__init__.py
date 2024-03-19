@@ -15,7 +15,7 @@ class MakingQuiz(MakingQuizTemplate):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
     
     #List of questions that are saved for the quiz
-    self.savedQuestions = []
+    self.savedQuestions = set()
 
   def drop_down_topicsList_change(self, **event_args):
     if self.drop_down_topicsList.selected_value == "All":
@@ -36,3 +36,10 @@ class MakingQuiz(MakingQuizTemplate):
       self.repeating_panel_questionsList.items = app_tables.questions.search(topic = topicChosen)
     else:
       self.repeating_panel_questionsList.items = app_tables.questions.search(topic = topicChosen, subtopic = subtopicChosen)
+
+  def button_viewSaved_click(self, **event_args):
+    self.repeating_panel_questionsList.items = self.savedQuestions
+
+  def button_viewAll_click(self, **event_args):
+    self.repeating_panel_questionsList.items = app_tables.questions.search()
+  

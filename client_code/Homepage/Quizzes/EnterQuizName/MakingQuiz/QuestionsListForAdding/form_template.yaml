@@ -2,9 +2,9 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: outlined_card_1
-  properties: {role: outlined-card}
+  properties: {role: outlined-card, col_widths: '{"HVOJIW":20,"BOTNCT":23,"CRANBH":25}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'CJKRUL,WGOFDQ'}
+  layout_properties: {grid_position: 'TYQSXG,DRUSSG'}
   components:
   - name: label_topic
     properties: {bold: true, italic: false, underline: false}
@@ -17,15 +17,23 @@ components:
   - name: label_used
     properties: {align: right}
     type: Label
-    layout_properties: {grid_position: 'HSDHXN,QBGNAM'}
-  - name: image_question
-    properties: {visible: false}
-    type: Image
-    layout_properties: {grid_position: 'BZXPGV,ZOEJCV'}
+    layout_properties: {grid_position: 'HSDHXN,TABPIK'}
   - name: label_questionText
     properties: {}
     type: Label
     layout_properties: {grid_position: 'YCYLSH,HHYVKO'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'NMTWIA,YZVYEU'}
+  - name: image_question
+    properties: {visible: false}
+    type: Image
+    layout_properties: {grid_position: 'APZFMW,TPNYSD'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'VFXXYA,MMLITL'}
   - name: label_option1
     properties: {align: center}
     type: Label
@@ -36,7 +44,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'JIJRBG,TAEJWE'}
   - name: label_option3
-    properties: {align: center}
+    properties: {align: center, bold: true}
     type: Label
     layout_properties: {grid_position: 'IJQYHU,GGVWBZ'}
   - name: label_option4
@@ -47,15 +55,18 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'OABVTI,RPGQUV'}
-  - name: button_addToQuiz
-    properties: {text: Add to Quiz, role: null, background: '#ff8f33', foreground: 'theme:On
-        Primary'}
-    type: Button
-    layout_properties: {grid_position: 'ZSJSFY,JWJGJV'}
-    event_bindings: {click: button_addToQuiz_click}
-  - name: button_removeFromQuiz
-    properties: {text: Remove From Quiz, role: null, background: '#ff0000', foreground: 'theme:On
-        Primary', visible: false}
-    type: Button
-    layout_properties: {grid_position: 'VVLIHX,YHYCYL'}
-    event_bindings: {click: button_addToQuiz_click}
+  - name: spacer_1_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'IIMXKV,CRANBH'}
+  - name: check_box_addToQuiz
+    properties: {text: Add to Quiz, bold: true, font: Calibri, font_size: 18, align: center,
+      background: '#ffa200', foreground: 'theme:On Primary'}
+    type: CheckBox
+    layout_properties: {grid_position: 'IIMXKV,HVOJIW'}
+    data_bindings: []
+    event_bindings: {change: check_box_addToQuiz_change}
+  - name: spacer_1_copy_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'IIMXKV,BOTNCT'}

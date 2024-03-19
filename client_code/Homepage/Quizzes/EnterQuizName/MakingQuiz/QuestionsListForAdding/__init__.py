@@ -9,8 +9,6 @@ class QuestionsListForAdding(QuestionsListForAddingTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    #Setting up the values that are going to be displayed
-    self.init_components(**properties)
     self.label_topic.text = "Topic: " + self.item['topic']
     self.label_subtopic.text = "Subtopic: "+ self.item['subtopic']
     self.label_questionText.text = self.item['text']
@@ -32,7 +30,6 @@ class QuestionsListForAdding(QuestionsListForAddingTemplate):
     elif self.item['correctAnswer'] == 'option4':
       self.label_option4.background = '#83f28f'
 
-
     #Adjusts the label of the question if the question has or not been used in a quiz before
     if self.item['isUsed']:
       self.label_used.text = "❌ HAS been used"
@@ -41,7 +38,13 @@ class QuestionsListForAdding(QuestionsListForAddingTemplate):
       self.label_used.text = "✅ NOT been used"
       self.label_used.foreground = '#00FF00'
 
-  def button_addToQuiz_click(self, **event_args):
-    question = self.parent.item
-    f
-
+  def setCheckboxTrue(self, **event_args):
+    if self.item in get_open_form().savedQuestions:
+      self.check_box_addToQuiz.checked = True
+  
+  def check_box_addToQuiz_change(self, **event_args):
+    question = self.item
+    if self.check_box_addToQuiz.checked:
+      get_open_form().savedQuestions.add(question)
+    else:
+      get_open_form().savedQuestions.discard(question)

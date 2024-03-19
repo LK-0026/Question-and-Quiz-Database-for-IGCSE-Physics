@@ -31,7 +31,7 @@ components:
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'ZACCQC,CSDFXQ'}
-    event_bindings: {pressed_enter: text_box_quizName_pressed_enter}
+    event_bindings: {}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer

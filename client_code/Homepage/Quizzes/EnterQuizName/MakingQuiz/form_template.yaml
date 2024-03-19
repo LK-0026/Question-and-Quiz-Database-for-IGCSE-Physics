@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{"QNQNCN":10,"BDWTFG":15,"OIDSOM":35,"ACCLPQ":25,"PBKAZQ":35}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -30,7 +30,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'STKINH,QNQNCN OVAXAV,KCHJEQ'}
   - name: label_1
-    properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter', role: null,
+    properties: {text: 'Filter:', align: right, bold: true, icon: 'fa:filter', role: null,
       foreground: '#29a2ff'}
     type: Label
     layout_properties: {grid_position: 'STKINH,QNQNCN'}
@@ -52,6 +52,10 @@ components:
     type: DropDown
     layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,ACCLPQ'}
     event_bindings: {change: drop_down_subtopicsList_change}
+  - name: spacer_1_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,PBKAZQ'}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer
@@ -60,19 +64,29 @@ components:
     properties: {text: View All Questions, foreground: 'theme:On Primary', background: '#2bc8fd'}
     type: Button
     layout_properties: {grid_position: 'VQZPCF,LFUESN'}
+    event_bindings: {click: button_viewAll_click}
   - name: button_viewSaved
     properties: {text: View Saved Questions, foreground: 'theme:On Primary', background: '#c629ff'}
     type: Button
     layout_properties: {grid_position: 'VQZPCF,ASZVPI'}
-  - name: outlined_card_questionsList
-    properties: {role: outlined-card}
+    event_bindings: {click: button_viewSaved_click}
+  - name: outlined_card_1
+    properties: {role: outlined-card, visible: true}
     type: ColumnPanel
     layout_properties: {grid_position: 'PRAKYJ,AHSWWU'}
     components:
     - name: repeating_panel_questionsList
       properties: {item_template: Homepage.Quizzes.EnterQuizName.MakingQuiz.QuestionsListForAdding}
       type: RepeatingPanel
-      layout_properties: {grid_position: 'FDJCQQ,NDSIMN'}
+      layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
+  - name: button_saveQuiz
+    properties: {text: Save Quiz, role: outlined-button, background: '#45f514', bold: true}
+    type: Button
+    layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'IWXXKV,RTPCVP'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

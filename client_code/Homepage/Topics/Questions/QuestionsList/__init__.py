@@ -9,7 +9,8 @@ class QuestionsList(QuestionsListTemplate):
   def __init__(self, **properties):
     #Setting up the values that are going to be displayed
     self.init_components(**properties)
-    self.label_subtopic.text = "Subtopic: "+ self.item['subtopic']
+    self.label_topic.text = "Topic: " + self.item['topic']
+    self.label_subtopic.text = "Subtopic: " + self.item['subtopic']
     self.label_questionText.text = self.item['text']
     if self.item['image'] != None:
       self.image_question.visible = True

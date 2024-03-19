@@ -8,11 +8,14 @@ from anvil.tables import app_tables
 class MakingQuiz(MakingQuizTemplate):
   def __init__(self, quizName,**properties):
     self.init_components(**properties)
-    self.label_quizName.text =quizName
+    self.label_quizName.text = quizName
     self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
     #Sets the items of the dropdown box to the list of topics
     self.drop_down_topicsList.items = ["All"] + self.topics
     self.repeating_panel_questionsList.items = app_tables.questions.search()
+    
+    #List of questions that are saved for the quiz
+    self.savedQuestions = []
 
   def drop_down_topicsList_change(self, **event_args):
     if self.drop_down_topicsList.selected_value == "All":

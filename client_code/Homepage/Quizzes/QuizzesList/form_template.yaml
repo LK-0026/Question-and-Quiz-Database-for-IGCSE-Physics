@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"NRTYOE":30,"GEJSBI":15,"KOZIUL":15,"ONJXGM":35,"WDMYRY":25,"JWRHHW":30,"JIVDUL":30}'}
+  properties: {col_widths: '{"NRTYOE":25,"GEJSBI":20,"KOZIUL":15,"ONJXGM":35,"WDMYRY":25,"JWRHHW":30,"JIVDUL":30}'}
 components:
 - name: label_quizName
   properties: {font_size: 16}

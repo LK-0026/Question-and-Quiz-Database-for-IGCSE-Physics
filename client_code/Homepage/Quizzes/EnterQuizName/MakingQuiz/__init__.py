@@ -42,4 +42,3 @@ class MakingQuiz(MakingQuizTemplate):
 
   def button_viewAll_click(self, **event_args):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
-    self.repeating_panel_questionsList.

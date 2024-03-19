@@ -42,6 +42,5 @@ class QuestionsListForAdding(QuestionsListForAddingTemplate):
       self.label_used.foreground = '#00FF00'
 
   def button_addToQuiz_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    question = 
 

@@ -53,3 +53,9 @@ components:
     type: Button
     layout_properties: {grid_position: 'ZSJSFY,JWJGJV'}
     event_bindings: {click: button_addToQuiz_click}
+  - name: button_removeFromQuiz
+    properties: {text: Remove From Quiz, role: null, background: '#ff0000', foreground: 'theme:On
+        Primary', visible: false}
+    type: Button
+    layout_properties: {grid_position: 'VVLIHX,YHYCYL'}
+    event_bindings: {click: button_addToQuiz_click}

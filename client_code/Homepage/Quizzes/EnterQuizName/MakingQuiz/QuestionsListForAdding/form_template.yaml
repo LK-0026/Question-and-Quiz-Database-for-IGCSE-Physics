@@ -25,7 +25,7 @@ components:
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'NMTWIA,YZVYEU'}
+    layout_properties: {grid_position: 'EAPEHZ,CUYJUH'}
   - name: image_question
     properties: {visible: false}
     type: Image
@@ -44,7 +44,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'JIJRBG,TAEJWE'}
   - name: label_option3
-    properties: {align: center, bold: true}
+    properties: {align: center, bold: false}
     type: Label
     layout_properties: {grid_position: 'IJQYHU,GGVWBZ'}
   - name: label_option4

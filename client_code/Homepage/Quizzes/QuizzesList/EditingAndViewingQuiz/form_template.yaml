@@ -24,6 +24,24 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'VBVJUY,MLMKRZ'}
+  - name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'DARYVB,GZPNFC'}
+  - name: button_viewAll
+    properties: {text: View All Questions, foreground: 'theme:On Primary', background: '#2bc8fd'}
+    type: Button
+    layout_properties: {grid_position: 'YGYDKN,DPSAID'}
+    event_bindings: {click: button_viewAll_click}
+  - name: button_viewSaved
+    properties: {text: View Saved Questions, foreground: 'theme:On Primary', background: '#c629ff'}
+    type: Button
+    layout_properties: {grid_position: 'YGYDKN,LLQVDT'}
+    event_bindings: {click: button_viewSaved_click}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'TWXLRT,AFLLZJ'}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
@@ -55,20 +73,6 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,PBKAZQ'}
-  - name: spacer_3
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'FXJJSK,SEDLOV'}
-  - name: button_viewAll
-    properties: {text: View All Questions, foreground: 'theme:On Primary', background: '#2bc8fd'}
-    type: Button
-    layout_properties: {grid_position: 'VQZPCF,LFUESN'}
-    event_bindings: {click: button_viewAll_click}
-  - name: button_viewSaved
-    properties: {text: View Saved Questions, foreground: 'theme:On Primary', background: '#c629ff'}
-    type: Button
-    layout_properties: {grid_position: 'VQZPCF,ASZVPI'}
-    event_bindings: {click: button_viewSaved_click}
   - name: outlined_card_1
     properties: {role: outlined-card, visible: true}
     type: ColumnPanel

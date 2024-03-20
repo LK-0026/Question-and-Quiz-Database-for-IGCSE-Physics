@@ -49,9 +49,14 @@ class EditingAndViewingQuiz(EditingAndViewingQuizTemplate):
     self.button_saveQuiz.visible = True
 
   def button_saveQuiz_click(self, **event_args):
-    app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))
-    alert("Quiz has successfully been added")
-    open_form("Homepage.Quizzes.QuizzesList")
+    if self.textBox_quizName.text == "":
+      alert("You must put a name for this quiz")
+    else:
+      quizToEdit = app_tables.quizzes.get_by_id(self.quizID)
+      quizToEdit['quizName'] = self.textBox_quizName.text
+      quizToEdit['questionsIncluded'] = list(self.savedQuestions)
+      alert("Quiz has successfully been saved")
+      open_form("Homepage.Quizzes")
 
   def back_button_click(self, **event_args):
     open_form('Homepage.Quizzes')

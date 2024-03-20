@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 class MakingQuiz(MakingQuizTemplate):
   def __init__(self, quizName,**properties):
     self.init_components(**properties)
-    self.label_quizName.text = quizName
+    self.quizName = self.label_quizName.text = quizName
     self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
     #Sets the items of the dropdown box to the list of topics
     self.drop_down_topicsList.items = ["All"] + self.topics
@@ -37,8 +37,13 @@ class MakingQuiz(MakingQuizTemplate):
     else:
       self.repeating_panel_questionsList.items = app_tables.questions.search(topic = topicChosen, subtopic = subtopicChosen)
 
-  def button_viewSaved_click(self, **event_args):
-    self.repeating_panel_questionsList.items = self.savedQuestions
-
   def button_viewAll_click(self, **event_args):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
+    self.button_saveQuiz.visible = False
+  
+  def button_viewSaved_click(self, **event_args):
+    self.repeating_panel_questionsList.items = self.savedQuestions
+    self.button_saveQuiz.visible = True
+
+  def button_saveQuiz_click(self, **event_args):
+    app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))

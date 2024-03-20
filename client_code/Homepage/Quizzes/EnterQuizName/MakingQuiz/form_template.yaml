@@ -80,9 +80,11 @@ components:
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
   - name: button_saveQuiz
-    properties: {text: Save Quiz, role: outlined-button, background: '#45f514', bold: true}
+    properties: {text: Save Quiz, role: outlined-button, background: '#45f514', bold: true,
+      foreground: 'theme:On Primary', visible: false}
     type: Button
     layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
+    event_bindings: {click: button_saveQuiz_click}
   - name: spacer_4
     properties: {height: 32}
     type: Spacer

@@ -13,10 +13,6 @@ class Adding(AddingTemplate):
     self.label_topic.text = topicChosen
     self.subtopics = anvil.server.call('getSubtopics')
     self.drop_down_subtopics.items = [""] + self.subtopics[topicChosen]
-
-  def file_loader_OCR_change(self, file, **event_args):
-    imgOCR = self.file_loader_OCR
-    self.text_area_OCR = anvil.server.call('imageToText', imgOCR)
   
   #When an image is uploaded, the image will be shown
   def file_loader_image_change(self, file, **event_args):

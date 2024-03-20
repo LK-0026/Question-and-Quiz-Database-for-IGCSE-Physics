@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"QNQNCN":10,"BDWTFG":20,"OIDSOM":30,"ACCLPQ":40,"PBKAZQ":20,"ZEBVSU":15,"ICPYJZ":30,"MLMKRZ":15}'}
+  properties: {col_widths: '{"ZEBVSU":15,"ICPYJZ":30,"MLMKRZ":15}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -42,37 +42,47 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'TWXLRT,AFLLZJ'}
-  - name: spacer_2
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'STKINH,QNQNCN OVAXAV,KCHJEQ'}
-  - name: label_1
-    properties: {text: 'Filter:', align: right, bold: true, icon: 'fa:filter', role: null,
-      foreground: '#29a2ff'}
-    type: Label
-    layout_properties: {grid_position: 'STKINH,QNQNCN'}
-  - name: label_2
-    properties: {text: 'Topic:', bold: true, align: left}
-    type: Label
-    layout_properties: {grid_position: 'STKINH,BDWTFG QWEBMJ,FEMCQQ'}
-  - name: drop_down_topicsList
-    properties: {}
-    type: DropDown
-    layout_properties: {grid_position: 'STKINH,BDWTFG DSXZRV,GFPHEW'}
-    event_bindings: {change: drop_down_topicsList_change}
-  - name: label_2_copy
-    properties: {text: Subtopic, bold: true, align: left}
-    type: Label
-    layout_properties: {grid_position: 'STKINH,OIDSOM AQZSAM,UNGFQB'}
-  - name: drop_down_subtopicsList
-    properties: {}
-    type: DropDown
-    layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,ACCLPQ'}
-    event_bindings: {change: drop_down_subtopicsList_change}
-  - name: spacer_1_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,PBKAZQ'}
+  - name: card_filter
+    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}',
+      visible: false}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'NBRPWS,ZRYEBP'}
+    components:
+    - name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'ASRHMR,ZJWAFU ODFLRV,OSFFXL'}
+    - name: label_2
+      properties: {text: 'Topic:', bold: true, align: left}
+      type: Label
+      layout_properties: {grid_position: 'ASRHMR,RJTUQY IKQZQU,FTZTPI'}
+    - name: drop_down_topicsList
+      properties: {}
+      type: DropDown
+      layout_properties: {grid_position: 'ASRHMR,RJTUQY XKRONB,QKJDGA'}
+      event_bindings: {change: drop_down_topicsList_change}
+    - name: label_1
+      properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter',
+        role: null, foreground: '#29a2ff'}
+      type: Label
+      layout_properties: {grid_position: 'ASRHMR,ZJWAFU VRQJUL,PCJHIT'}
+    - name: label_2_copy
+      properties: {text: Subtopic, bold: true, align: left}
+      type: Label
+      layout_properties: {grid_position: 'ASRHMR,OAPSBS VLSOGT,SCXJDT'}
+    - name: drop_down_subtopicsList
+      properties: {}
+      type: DropDown
+      layout_properties: {grid_position: 'ASRHMR,OAPSBS HZXAJK,CBAPJK'}
+      event_bindings: {change: drop_down_subtopicsList_change}
+    - name: label_3
+      properties: {text: Only Hasn't Been Used Before, bold: true, align: left}
+      type: Label
+      layout_properties: {grid_position: 'ASRHMR,KTPYME FDGCMK,ACSWEE'}
+    - name: check_box_notBeenUsed
+      properties: {text: '', align: center}
+      type: CheckBox
+      layout_properties: {grid_position: 'ASRHMR,KTPYME MXPDJY,RGYWKH'}
   - name: outlined_card_1
     properties: {role: outlined-card, visible: true}
     type: ColumnPanel

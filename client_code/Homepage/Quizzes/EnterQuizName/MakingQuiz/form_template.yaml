@@ -88,12 +88,12 @@ components:
       properties: {item_template: Homepage.Quizzes.EnterQuizName.MakingQuiz.QuestionsListForAdding}
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
-  - name: button_saveQuiz
+  - name: button_addQuiz
     properties: {text: Make Quiz, role: outlined-button, background: '#45f514', bold: true,
       foreground: 'theme:On Primary', visible: false, icon: 'fa:plus-square-o'}
     type: Button
     layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
-    event_bindings: {click: button_saveQuiz_click}
+    event_bindings: {click: button_addQuiz_click}
   - name: spacer_4
     properties: {height: 32}
     type: Spacer

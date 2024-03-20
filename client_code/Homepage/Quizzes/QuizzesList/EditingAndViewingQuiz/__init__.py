@@ -1,5 +1,7 @@
 from ._anvil_designer import EditingAndViewingQuizTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -43,10 +45,12 @@ class EditingAndViewingQuiz(EditingAndViewingQuizTemplate):
   def button_viewAll_click(self, **event_args):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
     self.button_saveQuiz.visible = False
+    self.card_filter.visible = True
 
   def button_viewSaved_click(self, **event_args):
     self.repeating_panel_questionsList.items = self.savedQuestions
     self.button_saveQuiz.visible = True
+    self.card_filter.visible = False
 
   def button_saveQuiz_click(self, **event_args):
     if self.textBox_quizName.text == "":

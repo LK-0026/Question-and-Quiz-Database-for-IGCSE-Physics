@@ -1,5 +1,7 @@
 from ._anvil_designer import MakingQuizTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -39,14 +41,18 @@ class MakingQuiz(MakingQuizTemplate):
 
   def button_viewAll_click(self, **event_args):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
-    self.button_saveQuiz.visible = False
+    self.button_addQuiz.visible = False
+    self.card_filter.visible = True
   
   def button_viewSaved_click(self, **event_args):
     self.repeating_panel_questionsList.items = self.savedQuestions
-    self.button_saveQuiz.visible = True
+    self.button_addQuiz.visible = True
+    self.card_filter.visible = False
 
-  def button_saveQuiz_click(self, **event_args):
+  def button_addQuiz_click(self, **event_args):
     app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))
+    for question in self.savedQuestions:
+      question['isUsed'] = True
     alert("Quiz has successfully been added")
     open_form("Homepage.Quizzes")
 

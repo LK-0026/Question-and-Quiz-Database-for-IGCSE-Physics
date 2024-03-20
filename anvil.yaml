@@ -3,6 +3,9 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
+- source: /runtime/services/google.yml
+  client_config: {}
+  server_config: {enc_delegation_refresh_token: zMg3zCij3JxvKZWoj0h1MMQGjptR33YU4PTya5wOHG997F9q3liWHNicuV4T5cHZ97Od8HQpD/N7uxqrz4M3XOioPaPFBeJtA1o4UoDQFt8ucpS552FKT/CR9ePBYo4J0ThzPLSrOvjFtGeQnlb4wno9zPT0wmmwh0UKQu8sgxXeyfXZ4mbkrKGQIRaEead9h1xNVXazA3V6jksXR64L1H2kHw6JBm+6ZCqMvtHEZTkGlT7m1/iB57U1JDVklxMG68EYB3uBSe+dKWF/3YHh8R92CWr+dUQVma4D73l+qV9PdAMUuTdfHWVwc3Jk3w==}
 startup: {type: form, module: Homepage}
 package_name: Question_and_Quiz_Database
 allow_embedding: false

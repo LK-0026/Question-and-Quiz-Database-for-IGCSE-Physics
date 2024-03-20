@@ -19,8 +19,12 @@ class MakingQuiz(MakingQuizTemplate):
     #List of questions that are saved for the quiz
     self.savedQuestions = set()
 
+
   def drop_down_topicsList_change(self, **event_args):
-    if self.drop_down_topicsList.selected_value == "All":
+    if self.drop_down_topicsList.selected_value == "All" and self.check_box_notBeenUsed.checked == True:
+      self.drop_down_subtopicsList.items = []
+      self.repeating_panel_questionsList.items = app_tables.questions.search(isUsed == False)
+    elif self.drop_down_topicsList.selected_value == "All":
       self.drop_down_subtopicsList.items = []
       self.repeating_panel_questionsList.items = app_tables.questions.search()
     else:
@@ -59,3 +63,6 @@ class MakingQuiz(MakingQuizTemplate):
   #Opens the Previous Form
   def back_button_click(self, **event_args):
     open_form("Homepage.Quizzes.EnterQuizName")
+
+  def check_box_notBeenUsed_change(self, **event_args):
+    

@@ -40,7 +40,8 @@ components:
     layout_properties: {grid_position: 'ZZQYDV,CPLLSC'}
     event_bindings: {click: button_viewSaved_click}
   - name: card_filter
-    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}'}
+    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}',
+      background: '#b5b0ba'}
     type: ColumnPanel
     layout_properties: {grid_position: 'FMFWWO,FWPYDY'}
     components:
@@ -59,7 +60,7 @@ components:
       event_bindings: {change: drop_down_topicsList_change}
     - name: label_1
       properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter',
-        role: null, foreground: '#29a2ff'}
+        role: null, foreground: '#0f97ff', background: ''}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,ZJWAFU VRQJUL,PCJHIT'}
     - name: label_2_copy
@@ -76,9 +77,10 @@ components:
       type: Label
       layout_properties: {grid_position: 'ASRHMR,KTPYME FDGCMK,ACSWEE'}
     - name: check_box_notBeenUsed
-      properties: {text: '', align: center}
+      properties: {text: '', align: center, background: 'theme:Outline'}
       type: CheckBox
       layout_properties: {grid_position: 'ASRHMR,KTPYME MXPDJY,RGYWKH'}
+      event_bindings: {change: check_box_notBeenUsed_change}
   - name: outlined_card_1
     properties: {role: outlined-card, visible: true}
     type: ColumnPanel

@@ -39,14 +39,10 @@ components:
     type: Button
     layout_properties: {grid_position: 'ZZQYDV,CPLLSC'}
     event_bindings: {click: button_viewSaved_click}
-  - name: spacer_5
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'PQKBUA,QPTQCQ'}
   - name: card_filter
     properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'KWNBQI,RFQSXO'}
+    layout_properties: {grid_position: 'FMFWWO,FWPYDY'}
     components:
     - name: spacer_2
       properties: {height: 32}
@@ -62,8 +58,8 @@ components:
       layout_properties: {grid_position: 'ASRHMR,RJTUQY XKRONB,QKJDGA'}
       event_bindings: {change: drop_down_topicsList_change}
     - name: label_1
-      properties: {text: 'Filter:', align: right, bold: true, icon: 'fa:filter', role: null,
-        foreground: '#29a2ff'}
+      properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter',
+        role: null, foreground: '#29a2ff'}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,ZJWAFU VRQJUL,PCJHIT'}
     - name: label_2_copy
@@ -76,13 +72,13 @@ components:
       layout_properties: {grid_position: 'ASRHMR,OAPSBS HZXAJK,CBAPJK'}
       event_bindings: {change: drop_down_subtopicsList_change}
     - name: label_3
-      properties: {text: Hasn't Been Used Before, bold: true, align: left}
+      properties: {text: Only Hasn't Been Used Before, bold: true, align: left}
       type: Label
-      layout_properties: {grid_position: 'ASRHMR,KTPYME ZPRMMQ,GRVXLU'}
-    - name: check_box_notUsedBefore
+      layout_properties: {grid_position: 'ASRHMR,KTPYME FDGCMK,ACSWEE'}
+    - name: check_box_notBeenUsed
       properties: {text: '', align: center}
       type: CheckBox
-      layout_properties: {grid_position: 'ASRHMR,KTPYME CTPCYO,DMWFFO'}
+      layout_properties: {grid_position: 'ASRHMR,KTPYME MXPDJY,RGYWKH'}
   - name: outlined_card_1
     properties: {role: outlined-card, visible: true}
     type: ColumnPanel

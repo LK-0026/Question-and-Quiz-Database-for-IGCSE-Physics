@@ -7,11 +7,12 @@ components:
   properties: {font_size: 16}
   type: Label
   layout_properties: {grid_position: 'CTJHRV,NRTYOE'}
-- name: button_view
+- name: button_editAndView
   properties: {text: View/Edit, role: outlined-button, background: '#00eeff', foreground: 'theme:On
       Primary', icon: 'fa:pencil-square', font_size: -9}
   type: Button
   layout_properties: {grid_position: 'CTJHRV,GEJSBI ZLJQNQ,JWRHHW'}
+  event_bindings: {click: button_editAndView_click}
 - name: button_export
   properties: {text: Export, role: outlined-button, background: '#31f50a', foreground: 'theme:On
       Primary', icon: 'fa:share-square-o'}
@@ -27,3 +28,4 @@ components:
       Primary', icon: 'fa:trash'}
   type: Button
   layout_properties: {grid_position: 'CTJHRV,KOZIUL XHLKDO,WDMYRY'}
+  event_bindings: {click: button_delete_click}

@@ -10,3 +10,12 @@ class QuizzesList(QuizzesListTemplate):
     self.init_components(**properties)
     self.label_quizName.text = self.item['quizName']
 
+  def button_delete_click(self, **event_args):
+    c = confirm("Are you sure you want to delete  '" + self.item['quizName'] +"' ?")
+    if c:
+      self.item.delete()
+      self.remove_from_parent()
+
+  def button_editAndView_click(self, **event_args):
+    open_form('Homepage.Quizzes.QuizzesList.EditingAndViewingQuiz', quizName = self.item['quizName'], questionsSaved = self.item['questionsIncluded'])
+

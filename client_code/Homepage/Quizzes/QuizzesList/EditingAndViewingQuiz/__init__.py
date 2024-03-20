@@ -1,19 +1,19 @@
-from ._anvil_designer import MakingQuizTemplate
+from ._anvil_designer import EditingAndViewingQuizTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class MakingQuiz(MakingQuizTemplate):
-  def __init__(self, quizName,**properties):
+class EditingAndViewingQuiz(EditingAndViewingQuizTemplate):
+  def __init__(self, quizName, **properties):
     self.init_components(**properties)
-    self.quizName = self.label_quizName.text = quizName
+    self.quizName = self.textBox_quizName.text = quizName
     self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
     #Sets the items of the dropdown box to the list of topics
     self.drop_down_topicsList.items = ["All"] + self.topics
     self.repeating_panel_questionsList.items = app_tables.questions.search()
-    
+
     #List of questions that are saved for the quiz
     self.savedQuestions = set()
 
@@ -40,7 +40,7 @@ class MakingQuiz(MakingQuizTemplate):
   def button_viewAll_click(self, **event_args):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
     self.button_saveQuiz.visible = False
-  
+
   def button_viewSaved_click(self, **event_args):
     self.repeating_panel_questionsList.items = self.savedQuestions
     self.button_saveQuiz.visible = True

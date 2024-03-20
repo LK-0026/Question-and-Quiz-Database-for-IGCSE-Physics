@@ -44,15 +44,15 @@ components:
     layout_properties: {grid_position: 'TWXLRT,AFLLZJ'}
   - name: card_filter
     properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}',
-      visible: false}
+      background: '#b5b0ba', visible: false}
     type: ColumnPanel
-    layout_properties: {grid_position: 'NBRPWS,ZRYEBP'}
+    layout_properties: {grid_position: 'PDBKLY,TDWQCA'}
     components:
-    - name: spacer_2
+    - name: spacer_2_copy
       properties: {height: 32}
       type: Spacer
       layout_properties: {grid_position: 'ASRHMR,ZJWAFU ODFLRV,OSFFXL'}
-    - name: label_2
+    - name: label_2_copy_2
       properties: {text: 'Topic:', bold: true, align: left}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,RJTUQY IKQZQU,FTZTPI'}
@@ -61,12 +61,12 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'ASRHMR,RJTUQY XKRONB,QKJDGA'}
       event_bindings: {change: drop_down_topicsList_change}
-    - name: label_1
+    - name: label_1_copy
       properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter',
-        role: null, foreground: '#29a2ff'}
+        role: null, foreground: '#0f97ff', background: '', italic: false}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,ZJWAFU VRQJUL,PCJHIT'}
-    - name: label_2_copy
+    - name: label_2_copy_copy
       properties: {text: Subtopic, bold: true, align: left}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,OAPSBS VLSOGT,SCXJDT'}
@@ -75,14 +75,25 @@ components:
       type: DropDown
       layout_properties: {grid_position: 'ASRHMR,OAPSBS HZXAJK,CBAPJK'}
       event_bindings: {change: drop_down_subtopicsList_change}
-    - name: label_3
+    - name: label_3_copy
       properties: {text: Only Hasn't Been Used Before, bold: true, align: left}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,KTPYME FDGCMK,ACSWEE'}
     - name: check_box_notBeenUsed
-      properties: {text: '', align: center}
+      properties: {text: '', align: center, background: 'theme:Outline'}
       type: CheckBox
       layout_properties: {grid_position: 'ASRHMR,KTPYME MXPDJY,RGYWKH'}
+      event_bindings: {change: check_box_notBeenUsed_change}
+    - name: button_applyFilter
+      properties:
+        text: Apply Filters
+        border: ''
+        role: [outlined-button]
+        foreground: theme:On Primary
+        background: '#7f5353'
+      type: Button
+      layout_properties: {grid_position: 'APEVYX,YJBPQJ'}
+      event_bindings: {click: button_applyFilter_click}
   - name: outlined_card_1
     properties: {role: outlined-card, visible: true}
     type: ColumnPanel
@@ -92,6 +103,11 @@ components:
       properties: {item_template: Homepage.Quizzes.EnterQuizName.MakingQuiz.QuestionsListForAdding}
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
+    - name: label_noResults
+      properties: {align: center, text: No Results Found, foreground: '#c2c2c2', bold: false,
+        underline: false, font_size: 20, italic: true, visible: false}
+      type: Label
+      layout_properties: {grid_position: 'GQYYFC,CLWBES'}
   - name: button_saveQuiz
     properties: {text: Save Changes, role: outlined-button, background: '#0aefff',
       bold: true, foreground: 'theme:On Primary', visible: true, icon: 'fa:save'}

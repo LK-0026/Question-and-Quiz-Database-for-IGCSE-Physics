@@ -30,8 +30,28 @@ class MakingQuiz(MakingQuizTemplate):
       self.drop_down_subtopicsList.items = ["All"] + self.subtopics[topicChosen]
 
   def button_applyFilter_click(self, **event_args):
-    if 
+    topicChosen = self.drop_down_topicsList.selected_value
+    subtopicChosen = self.drop_down_subtopicsList.selected_value
+    if self.check_box_notBeenUsed.checked:
+      if topicChosen == "All":
+        self.repeating_panel_questionsList.items = app_tables.questions.search(isUsed=False)
+      elif subtopicChosen == "All":
+        self.repeating_panel_questionsList.items = app_tables.questions.search(isUsed=False, topic= topicChosen)
+      else:
+        self.repeating_panel_questionsList.items = app_tables.questions.search(isUsed=False, topic= topicChosen, subtopic= subtopicChosen)
+    else:
+      if topicChosen == "All":
+        self.repeating_panel_questionsList.items = app_tables.questions.search()
+      elif subtopicChosen == "All":
+        self.repeating_panel_questionsList.items = app_tables.questions.search(topic= topicChosen)
+      else:
+        self.repeating_panel_questionsList.items = app_tables.questions.search(topic= topicChosen, subtopic= subtopicChosen)
 
+    if len(self.repeating_panel_questionsList.items) == 0:
+      self.label_noResults.visible = True
+    else:
+      self.label_noResults.visible = False
+  
   def button_viewAll_click(self, **event_args):
     self.repeating_panel_questionsList.items = app_tables.questions.search()
     self.button_addQuiz.visible = False

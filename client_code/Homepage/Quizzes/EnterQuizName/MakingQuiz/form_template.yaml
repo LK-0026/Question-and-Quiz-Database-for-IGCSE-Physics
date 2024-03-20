@@ -4,13 +4,13 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"QNQNCN":10,"BDWTFG":15,"OIDSOM":35,"ACCLPQ":35,"PBKAZQ":25}'}
+  properties: {col_widths: '{"QNQNCN":10,"BDWTFG":15,"OIDSOM":35,"ACCLPQ":25,"OJMVLB":30,"UNGFQB":25}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
   - name: back_button
     properties: {text: Back, visible: true, enabled: true, align: left, italic: true,
-      role: filled-button}
+      role: filled-button, underline: false}
     type: Button
     layout_properties: {grid_position: 'VBVJUY,ZEBVSU'}
     event_bindings: {click: back_button_click}
@@ -47,15 +47,19 @@ components:
     properties: {text: Subtopic, bold: true, align: left}
     type: Label
     layout_properties: {grid_position: 'STKINH,OIDSOM AQZSAM,UNGFQB'}
+  - name: label_3
+    properties: {text: Hasn't Been Used Before, bold: true, align: center}
+    type: Label
+    layout_properties: {grid_position: 'STKINH,OIDSOM AQZSAM,ZRSTZI'}
   - name: drop_down_subtopicsList
     properties: {}
     type: DropDown
     layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,ACCLPQ'}
     event_bindings: {change: drop_down_subtopicsList_change}
-  - name: spacer_1_copy
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,PBKAZQ'}
+  - name: check_box_notUsedBefore
+    properties: {text: '', align: center}
+    type: CheckBox
+    layout_properties: {grid_position: 'STKINH,OIDSOM SIUOKI,OJMVLB'}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer
@@ -80,8 +84,8 @@ components:
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
   - name: button_saveQuiz
-    properties: {text: Save Quiz, role: outlined-button, background: '#45f514', bold: true,
-      foreground: 'theme:On Primary', visible: false}
+    properties: {text: Make Quiz, role: outlined-button, background: '#45f514', bold: true,
+      foreground: 'theme:On Primary', visible: false, icon: 'fa:plus-square-o'}
     type: Button
     layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
     event_bindings: {click: button_saveQuiz_click}

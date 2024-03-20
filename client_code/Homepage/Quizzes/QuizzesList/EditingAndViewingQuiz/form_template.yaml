@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"QNQNCN":10,"BDWTFG":15,"OIDSOM":35,"ACCLPQ":35,"PBKAZQ":25,"ZEBVSU":15,"ICPYJZ":30,"MLMKRZ":15}'}
+  properties: {col_widths: '{"QNQNCN":10,"BDWTFG":20,"OIDSOM":30,"ACCLPQ":40,"PBKAZQ":20,"ZEBVSU":15,"ICPYJZ":30,"MLMKRZ":15}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -79,8 +79,8 @@ components:
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
   - name: button_saveQuiz
-    properties: {text: Save Quiz, role: outlined-button, background: '#45f514', bold: true,
-      foreground: 'theme:On Primary', visible: false}
+    properties: {text: Save Changes, role: outlined-button, background: '#0aefff',
+      bold: true, foreground: 'theme:On Primary', visible: true, icon: 'fa:save'}
     type: Button
     layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
     event_bindings: {click: button_saveQuiz_click}

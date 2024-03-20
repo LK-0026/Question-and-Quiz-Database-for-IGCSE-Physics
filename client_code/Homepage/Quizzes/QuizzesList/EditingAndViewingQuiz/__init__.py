@@ -6,16 +6,19 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class EditingAndViewingQuiz(EditingAndViewingQuizTemplate):
-  def __init__(self, quizName, **properties):
+  def __init__(self, quizName, savedQuestions, quizID, **properties):
     self.init_components(**properties)
+    self.quizID = quizID
     self.quizName = self.textBox_quizName.text = quizName
-    self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
-    #Sets the items of the dropdown box to the list of topics
-    self.drop_down_topicsList.items = ["All"] + self.topics
-    self.repeating_panel_questionsList.items = app_tables.questions.search()
 
     #List of questions that are saved for the quiz
-    self.savedQuestions = set()
+    self.savedQuestions = set(savedQuestions)
+    
+    self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
+    
+    #Sets the items of the dropdown box to the list of topics
+    self.drop_down_topicsList.items = ["All"] + self.topics
+    self.repeating_panel_questionsList.items = self.savedQuestions
 
   def drop_down_topicsList_change(self, **event_args):
     if self.drop_down_topicsList.selected_value == "All":
@@ -49,3 +52,6 @@ class EditingAndViewingQuiz(EditingAndViewingQuizTemplate):
     app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))
     alert("Quiz has successfully been added")
     open_form("Homepage.Quizzes.QuizzesList")
+
+  def back_button_click(self, **event_args):
+    open_form('Homepage.Quizzes')

@@ -49,3 +49,7 @@ class MakingQuiz(MakingQuizTemplate):
     app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))
     alert("Quiz has successfully been added")
     open_form("Homepage.Quizzes.QuizzesList")
+
+  #Opens the Previous Form
+  def back_button_click(self, **event_args):
+    open_form("Homepage.Quizzes.EnterQuizName")

@@ -63,12 +63,17 @@ class MakingQuiz(MakingQuizTemplate):
     self.card_filter.visible = False
 
   def button_addQuiz_click(self, **event_args):
-    app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))
-    for question in self.savedQuestions:
-      question['isUsed'] = True
-    alert("Quiz has successfully been added")
-    open_form("Homepage.Quizzes")
+    if len(self.savedQuestions) == 0:
+      alert("You cannot make a quiz with zero questions")
+    else:
+      app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions))
+      for question in self.savedQuestions:
+        question['isUsed'] = True
+      alert("Quiz has successfully been added")
+      open_form("Homepage.Quizzes")
 
   #Opens the Previous Form
   def back_button_click(self, **event_args):
     open_form("Homepage.Quizzes.EnterQuizName")
+
+

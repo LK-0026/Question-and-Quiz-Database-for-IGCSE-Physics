@@ -71,7 +71,7 @@ components:
       properties: {}
       type: DropDown
       layout_properties: {grid_position: 'ASRHMR,OAPSBS HZXAJK,CBAPJK'}
-      event_bindings: {change: drop_down_subtopicsList_change}
+      event_bindings: {}
     - name: label_3
       properties: {text: Only Hasn't Been Used Before, bold: true, align: left}
       type: Label
@@ -80,7 +80,7 @@ components:
       properties: {text: '', align: center, background: 'theme:Outline'}
       type: CheckBox
       layout_properties: {grid_position: 'ASRHMR,KTPYME MXPDJY,RGYWKH'}
-      event_bindings: {change: check_box_notBeenUsed_change}
+      event_bindings: {}
     - name: button_applyFilter
       properties:
         text: Apply Filters

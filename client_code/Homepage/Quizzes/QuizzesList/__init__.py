@@ -22,3 +22,6 @@ class QuizzesList(QuizzesListTemplate):
   def button_editAndView_click(self, **event_args):
     open_form('Homepage.Quizzes.QuizzesList.EditingAndViewingQuiz', quizName = self.item['quizName'], savedQuestions = self.item['questionsIncluded'], quizID = self.quizID)
 
+  def button_createGForms_click(self, **event_args):
+    
+

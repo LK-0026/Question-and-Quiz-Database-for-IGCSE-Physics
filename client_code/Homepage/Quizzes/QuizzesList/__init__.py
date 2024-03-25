@@ -23,5 +23,10 @@ class QuizzesList(QuizzesListTemplate):
     open_form('Homepage.Quizzes.QuizzesList.EditingAndViewingQuiz', quizName = self.item['quizName'], savedQuestions = self.item['questionsIncluded'], quizID = self.quizID)
 
   def button_createGForms_click(self, **event_args):
-    
-
+    anvil.google.auth.login(["https://www.googleapis.com/auth/forms"])
+    gFormQuiz = anvil.http.request("https://forms.googleapis.com/v1/forms", 
+                                   json = True, headers = {
+                                     "info": {
+                                       "title": self.item['quizName']
+                                     }
+                                   })

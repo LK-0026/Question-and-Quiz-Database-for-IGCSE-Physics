@@ -6,6 +6,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import anvil.http
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):
@@ -24,7 +25,7 @@ class QuizzesList(QuizzesListTemplate):
 
   def button_createGForms_click(self, **event_args):
     anvil.google.auth.login(["https://www.googleapis.com/auth/forms"])
-    gFormQuiz = anvil.http.request("https://forms.googleapis.com/v1/forms", 
+    gFormQuiz = anvil.http.request("https://forms.googleapis.com/v1/forms",
                                    json = True, headers = {
                                      "info": {
                                        "title": self.item['quizName']

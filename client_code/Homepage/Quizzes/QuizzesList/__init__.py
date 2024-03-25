@@ -8,6 +8,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
 import anvil.google.auth
+import anvil.google.drive
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):
@@ -25,25 +26,17 @@ class QuizzesList(QuizzesListTemplate):
     open_form('Homepage.Quizzes.QuizzesList.EditingAndViewingQuiz', quizName = self.item['quizName'], savedQuestions = self.item['questionsIncluded'], quizID = self.quizID)
 
   def button_createGForms_click(self, **event_args):
-    anvil.google.auth.login(["https://www.googleapis.com/auth/forms"])
+    anvil.google.auth.login(["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/forms.body"])
     accessToken = anvil.google.auth.get_user_access_token()
-    
     createGFormResponse = anvil.http.request(url = "https://forms.googleapis.com/v1/forms",
-                                   method = "POST",
-                                   json = {"info": {
-                                       "title": self.item['quizName']
-                                     }
-                                   },
-                                  headers={
-                                      'Authorization':
+                                  method = "POST",
+                                  json = {
+                                    "info": {
+                                        "title": "My new form"
+                                    }
+                                  },
+                                  headers = {
+                                      'Authorization': 
                                         'Bearer ' + accessToken
                                     })
-    # Process the response from the API
-    if createGFormResponse.status_code == 200:
-        # Request successful
-        form_data = createGFormResponse.json()
-        print("Form ID:", form_data['id'])
-    else:
-        # Request failed
-        print("Error:", createGFormResponse.status_code)
 

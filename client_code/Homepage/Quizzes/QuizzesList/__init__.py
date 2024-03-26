@@ -7,8 +7,6 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
-import anvil.google.auth
-import anvil.google.drive
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):
@@ -19,6 +17,9 @@ class QuizzesList(QuizzesListTemplate):
   def button_delete_click(self, **event_args):
     c = confirm("Are you sure you want to delete  '" + self.item['quizName'] +"' ?")
     if c:
+      resultsID = self.item['results'].get_id()
+      resultsRow = app_tables.results.get_by_id(resultsID)
+      resultsRow.delete()
       self.item.delete()
       self.remove_from_parent()
 
@@ -39,4 +40,7 @@ class QuizzesList(QuizzesListTemplate):
                                       'Authorization': 
                                         'Bearer ' + accessToken
                                     })
+
+  def button_results_click(self, **event_args):
+    open_form(ques)
 

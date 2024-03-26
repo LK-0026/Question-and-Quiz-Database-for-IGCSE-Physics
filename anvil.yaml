@@ -80,7 +80,7 @@ db_schema:
       target: results
     title: quizzes
   results:
-    client: none
+    client: full
     server: full
     columns:
     - name: averageScore

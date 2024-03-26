@@ -20,11 +20,12 @@ components:
   type: Button
   layout_properties: {grid_position: 'CTJHRV,GEJSBI ZLJQNQ,JIVDUL'}
   event_bindings: {click: button_createGForms_click}
-- name: outlined_export_copy
+- name: button_results
   properties: {text: Results, role: outlined-button, background: '#bbc9bb', foreground: 'theme:On
       Primary', icon: 'fa:share-square-o'}
   type: Button
   layout_properties: {grid_position: 'CTJHRV,GEJSBI ZLJQNQ,RFPDQL'}
+  event_bindings: {click: button_results_click}
 - name: button_delete
   properties: {text: '', role: outlined-button, background: '#ff0000', foreground: 'theme:On
       Primary', icon: 'fa:trash'}

@@ -74,5 +74,21 @@ db_schema:
       admin_ui: {order: 1, width: 571}
       type: link_multiple
       target: questions
+    - name: results
+      admin_ui: {width: 200, order: 2}
+      type: link_single
+      target: results
     title: quizzes
+  results:
+    client: none
+    server: full
+    columns:
+    - name: averageScore
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: freqWrongQuestions
+      admin_ui: {width: 200, order: 1}
+      type: link_multiple
+      target: questions
+    title: results
 renamed: true

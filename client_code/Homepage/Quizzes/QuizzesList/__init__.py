@@ -32,7 +32,7 @@ class QuizzesList(QuizzesListTemplate):
                                   method = "POST",
                                   json = {
                                     "info": {
-                                      "title": "Test quiz"
+                                      "title": "Sample quiz"
                                     }
                                   },
                                   headers = {

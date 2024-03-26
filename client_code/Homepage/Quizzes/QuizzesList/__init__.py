@@ -42,5 +42,4 @@ class QuizzesList(QuizzesListTemplate):
                                     })
 
   def button_results_click(self, **event_args):
-    open_form(ques)
-
+    open_form("Homepage.Quizzes.QuizzesList.QuizResults", quizID = self.quizID)

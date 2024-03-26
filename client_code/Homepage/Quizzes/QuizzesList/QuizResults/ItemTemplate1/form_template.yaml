@@ -1,0 +1,53 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: outlined-card, col_widths: '{"VQISNV":20,"SWFJFB":25,"SISXWJ":15}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'YGPEMH,FCJODH'}
+  components:
+  - name: label_topic
+    properties: {bold: true, italic: false, underline: false}
+    type: Label
+    layout_properties: {grid_position: 'HSDHXN,VQISNV'}
+  - name: label_subtopic
+    properties: {bold: true, italic: false, foreground: '#ff0000'}
+    type: Label
+    layout_properties: {grid_position: 'HSDHXN,SWFJFB'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'HSDHXN,SISXWJ'}
+  - name: label_questionText
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'YCYLSH,HHYVKO'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'EAPEHZ,CUYJUH'}
+  - name: image_question
+    properties: {visible: false}
+    type: Image
+    layout_properties: {grid_position: 'APZFMW,TPNYSD'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'VFXXYA,MMLITL'}
+  - name: label_option1
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'JIJRBG,OFNYIB'}
+    event_bindings: {}
+  - name: label_option2
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'JIJRBG,TAEJWE'}
+  - name: label_option3
+    properties: {align: center, bold: false}
+    type: Label
+    layout_properties: {grid_position: 'IJQYHU,GGVWBZ'}
+  - name: label_option4
+    properties: {align: center}
+    type: Label
+    layout_properties: {grid_position: 'IJQYHU,GGIONT'}

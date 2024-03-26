@@ -34,6 +34,5 @@ class QuizResults(QuizResultsTemplate):
   def back_button_click(self, **event_args):
     open_form("Homepage.Quizzes")
 
-
-  
-  
+  def button_editFreqWrongQues_click(self, **event_args):
+    open_form("Homepage.Quizzes.QuizzesList.QuizResults.EditFreqWrongQuestions", quizRow = self.quizRow, resultRow = self.resultRow)

@@ -66,7 +66,7 @@ class MakingQuiz(MakingQuizTemplate):
     if len(self.savedQuestions) == 0:
       alert("You cannot make a quiz with zero questions")
     else:
-      emptyResults = app_tables.results.add_row()
+      emptyResults = app_tables.results.add_row(freqWrongQuestions= [])
       app_tables.quizzes.add_row(quizName = self.quizName, questionsIncluded = list(self.savedQuestions), results = emptyResults)
       for question in self.savedQuestions:
         question['isUsed'] = True

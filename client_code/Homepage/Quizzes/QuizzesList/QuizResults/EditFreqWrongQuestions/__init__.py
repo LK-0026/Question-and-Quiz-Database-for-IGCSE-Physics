@@ -14,8 +14,10 @@ class EditFreqWrongQuestions(EditFreqWrongQuestionsTemplate):
     self.quizRow = quizRow
     self.resultRow = resultRow
     self.repeating_panel_quizQuestions.items = quizRow['questionsIncluded']
-    self.savedQuestions = set()
-    if len(resultRow['freqWrongQuestions']) > 0:
+    
+    if len(resultRow['freqWrongQuestions']) == 0:
+      self.savedQuestions = set()
+    else:
       self.savedQuestions = set(resultRow['freqWrongQuestions'])
 
   def button_viewAll_click(self, **event_args):
@@ -24,7 +26,7 @@ class EditFreqWrongQuestions(EditFreqWrongQuestionsTemplate):
 
   def button_viewSaved_click(self, **event_args):
      self.repeating_panel_quizQuestions.items = list(self.savedQuestions)
-    self.button_saveQuiz.visible = True
+     self.button_saveQuiz.visible = True
   
   def button_saveQuiz_click(self, **event_args):
     self.resultRow['freqWrongQuestions'] = list(self.savedQuestions)

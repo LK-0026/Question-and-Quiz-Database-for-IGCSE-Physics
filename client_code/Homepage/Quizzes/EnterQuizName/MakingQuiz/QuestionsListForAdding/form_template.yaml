@@ -59,13 +59,13 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'IIMXKV,CRANBH'}
-  - name: check_box_addToQuiz
-    properties: {text: Add to Quiz, bold: true, font: Calibri, font_size: 18, align: center,
+  - name: check_box_add
+    properties: {text: Add, bold: true, font: Calibri, font_size: 18, align: center,
       background: '#ffa200', foreground: 'theme:On Primary'}
     type: CheckBox
     layout_properties: {grid_position: 'IIMXKV,HVOJIW'}
     data_bindings: []
-    event_bindings: {change: check_box_addToQuiz_change}
+    event_bindings: {change: check_box_add_change}
   - name: spacer_1_copy_copy
     properties: {height: 32}
     type: Spacer

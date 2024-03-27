@@ -28,7 +28,32 @@ components:
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'OGCAYW,GVZOHM'}
+    layout_properties: {grid_position: 'JKHEFS,MVZWMO'}
+  - name: button_viewAll
+    properties: {text: View All Quiz Questions, foreground: 'theme:On Primary', background: '#2bc8fd'}
+    type: Button
+    layout_properties: {grid_position: 'JUUDDF,LPOKLA'}
+    event_bindings: {click: button_viewAll_click}
+  - name: button_viewFreqWrong
+    properties: {text: View Frequently Wrong, foreground: 'theme:On Primary', background: '#e610ea'}
+    type: Button
+    layout_properties: {grid_position: 'JUUDDF,IIDEDB'}
+    event_bindings: {click: button_viewSaved_click}
+  - name: outlined_card_1
+    properties: {role: outlined-card, visible: true}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'PBULCH,GZKLYZ'}
+    components:
+    - name: repeating_panel_questionsList
+      properties: {item_template: Homepage.Quizzes.EnterQuizName.MakingQuiz.QuestionsListForAdding}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
+    - name: button_saveQuiz
+      properties: {text: Save Changes, role: outlined-button, background: '#0aefff',
+        bold: true, foreground: 'theme:On Primary', visible: false, icon: 'fa:save'}
+      type: Button
+      layout_properties: {grid_position: 'IYTUZU,VWNFHP'}
+      event_bindings: {click: button_saveQuiz_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links

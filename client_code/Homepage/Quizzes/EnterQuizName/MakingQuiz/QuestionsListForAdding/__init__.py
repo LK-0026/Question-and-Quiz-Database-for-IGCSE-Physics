@@ -40,9 +40,9 @@ class QuestionsListForAdding(QuestionsListForAddingTemplate):
       self.label_used.text = "✅ NOT been used"
       self.label_used.foreground = '#00FF00'
   
-  def check_box_addToQuiz_change(self, **event_args):
+  def check_box_add_change(self, **event_args):
     question = self.item
-    if self.check_box_addToQuiz.checked:
+    if self.check_box_add.checked:
       get_open_form().savedQuestions.add(question)
     else:
       get_open_form().savedQuestions.discard(question)

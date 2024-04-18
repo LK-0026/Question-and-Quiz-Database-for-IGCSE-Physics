@@ -30,20 +30,22 @@ class QuizzesList(QuizzesListTemplate):
   def button_createGForms_click(self, **event_args):
     anvil.google.auth.login(["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/forms.body"])
     accessToken = anvil.google.auth.get_user_access_token()
-    
-    
-    anvil.http.request("https://forms.googleapis.com/v1/forms/",
+    createGFormResponse = anvil.http.request("https://forms.googleapis.com/v1/forms/",
                                   method = "POST",
-                                  json = 
+                                  json = True,
+                                  data = 
                                   {
                                     "info": {
-                                      "title": "Sample quiz"
+                                      "title": self.item['quizName']
                                     }
                                   },
                                   headers = {
                                       'Authorization': 
                                         'Bearer ' + accessToken
                                     })
+    formURL = 
+    alert("Google Form Quiz Has been Created, link to the google form:\n"+ 
+          createGFormResponse["responderUri"])
 
   def button_results_click(self, **event_args):
     open_form("Homepage.Quizzes.QuizzesList.QuizResults", quizID = self.quizID)

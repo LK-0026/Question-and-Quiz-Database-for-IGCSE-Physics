@@ -44,8 +44,7 @@ class QuizzesList(QuizzesListTemplate):
                                     })
     formURL = "https://docs.google.com/forms/d/" + createGFormResponse["formId"] + "/edit"
     
-    alert("Google Form Quiz Has been Created, link to the google form:\n" + 
-          clickableFormUrl)
+    alert("Google Form Quiz Has been Created, link to the google form:\n" + formURL)
 
   def button_results_click(self, **event_args):
     open_form("Homepage.Quizzes.QuizzesList.QuizResults", quizID = self.quizID)

@@ -7,6 +7,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
+import anvil.js
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):
@@ -43,8 +44,8 @@ class QuizzesList(QuizzesListTemplate):
                                         'Bearer ' + accessToken
                                     })
     formURL = "https://docs.google.com/forms/d/" + createGFormResponse["formId"] + "/edit"
-    
-    alert("Google Form Quiz Has been Created, link to the google form:\n" + formURL)
+    clickableLink = f'<a href="{formURL}">{formURL}</a>'
+    alert(f"Google Form for quiz has been created, link to the Google form:\n{clickableLink}")
 
   def button_results_click(self, **event_args):
     open_form("Homepage.Quizzes.QuizzesList.QuizResults", quizID = self.quizID)

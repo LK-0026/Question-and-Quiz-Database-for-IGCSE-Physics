@@ -65,38 +65,51 @@ class QuizzesList(QuizzesListTemplate):
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                         data = 
                         {
-                          "requests": [{
-                            "createItem": {
-                              "item": {
-                                "title": question['text'],
+                          "requests": [
+                            {
+                              "createItem": {
+                                "item": {
+                                  "title": question['text'],
                                   "questionItem": {
-                                      "question": {
-                                          "required": True,
-                                          "grading": {
-                                              "pointValue": 1,
-                                              "correctAnswers": {
-                                                  "answers": [{"value": correctAnsValue}]
-                                              },
-                                              "whenRight": {"text": "You got it!"},
-                                              "whenWrong": {"text": "Sorry, that's wrong"}
+                                    "question": {
+                                      "required": True,
+                                      "grading": {
+                                        "correctAnswers": {
+                                          "answers": [
+                                            {
+                                              "value": correctAnsValue
+                                            }
+                                          ]
+                                        },
+                                        "pointValue": 1
+                                      },
+                                      "choiceQuestion": {
+                                        "shuffle": True,
+                                        "options": [
+                                          {
+                                            "value": question['option1']
                                           },
-                                          "choiceQuestion": {
-                                              "type": "RADIO",
-                                              "options": [
-                                                  {"value": question['option1']},
-                                                  {"value": question['option2']},
-                                                  {"value": question['option3']},
-                                                  {"value": question['option4']}
-                                              ]
+                                          {
+                                            "value": question['option2']
+                                          },
+                                          {
+                                            "value": question['option3']
+                                          },
+                                          {
+                                            "value": question['option4']
                                           }
+                                        ],
+                                        "type": "RADIO"
                                       }
-                                  },
+                                    }
+                                  }
+                                },
                                 "location": {
                                   "index": i
                                 }
                               }
                             }
-                          }]
+                          ]
                         },
                         headers = {'Authorization': 'Bearer ' + accessToken})
     formURL = "https://docs.google.com/forms/d/" + formID + "/edit"

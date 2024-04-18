@@ -7,7 +7,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
-import anvil.js
+import webbrowser
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):
@@ -30,22 +30,74 @@ class QuizzesList(QuizzesListTemplate):
   def button_createGForms_click(self, **event_args):
     anvil.google.auth.login(["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/forms.body"])
     accessToken = anvil.google.auth.get_user_access_token()
-    createGFormResponse = anvil.http.request("https://forms.googleapis.com/v1/forms/",
-                                  method = "POST",
-                                  json = True,
-                                  data = 
-                                  {
-                                    "info": {
-                                      "title": self.item['quizName']
-                                    }
-                                  },
-                                  headers = {
-                                      'Authorization': 
-                                        'Bearer ' + accessToken
-                                    })
-    formURL = "https://docs.google.com/forms/d/" + createGFormResponse["formId"] + "/edit"
-    clickableLink = f'<a href="{formURL}">{formURL}</a>'
-    alert(f"Google Form for quiz has been created, link to the Google form:\n{clickableLink}")
+    createGFormResponse = anvil.http.request("https://forms.googleapis.com/v1/forms/", method = "POST", json = True,
+                          data = 
+                          {
+                            "info": {
+                              "title": self.item['quizName']
+                            }
+                          },
+                          headers = {'Authorization': 'Bearer ' + accessToken})
+    
+    formID = createGFormResponse["formId"]
+    
+    anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
+                      data = 
+                       {
+                        "requests": [
+                          {
+                            "updateSettings": {
+                              "settings": {
+                                "quizSettings": {
+                                  "isQuiz": True
+                                }
+                              },
+                            "updateMask": "quizSettings.isQuiz"
+                            }
+                          }
+                        ]
+                      },
+                      headers = {'Authorization': 'Bearer ' + accessToken})
+    for question in self.item['questionsIncluded']:
+      correctAnsValue = question[question['correctAnswer']]
+      if True:
+        anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
+                        data = 
+                        {
+                          "requests": [{
+                            "createItem": {
+                              "item": {
+                                "title": question['text'],
+                                  "questionItem": {
+                                      "question": {
+                                          "required": True,
+                                          "grading": {
+                                              "pointValue": 1,
+                                              "correctAnswers": {
+                                                  "answers": [{"value": correctAnsValue}]
+                                              },
+                                              "whenRight": {"text": "You got it!"},
+                                              "whenWrong": {"text": "Sorry, that's wrong"}
+                                          },
+                                          "choiceQuestion": {
+                                              "type": "RADIO",
+                                              "options": [
+                                                  {"value": question['option1']},
+                                                  {"value": question['option2']},
+                                                  {"value": question['option3']},
+                                                  {"value": question['option4']}
+                                              ]
+                                          }
+                                      }
+                                  }
+                              }
+                            }
+                          }]
+                        },
+                        headers = {'Authorization': 'Bearer ' + accessToken})
+    formURL = "https://docs.google.com/forms/d/" + formID + "/edit"
+    webbrowser.open(formURL)
+    alert("Google Form for quiz has been created. If you have not been redirected, open google drive")
 
   def button_results_click(self, **event_args):
     open_form("Homepage.Quizzes.QuizzesList.QuizResults", quizID = self.quizID)

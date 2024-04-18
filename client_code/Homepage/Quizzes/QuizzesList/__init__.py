@@ -63,9 +63,9 @@ class QuizzesList(QuizzesListTemplate):
       correctAnsValue = question[question['correctAnswer']]
       if True:
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
-                        data = 
-                        {
-                          "requests": [
+                           data = 
+                           {
+                            "requests": [
                             {
                               "createItem": {
                                 "item": {

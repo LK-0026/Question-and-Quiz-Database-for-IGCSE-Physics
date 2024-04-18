@@ -58,7 +58,8 @@ class QuizzesList(QuizzesListTemplate):
                         ]
                       },
                       headers = {'Authorization': 'Bearer ' + accessToken})
-    for question in self.item['questionsIncluded']:
+    for i in range(len(self.item['questionsIncluded'])):
+      question = self.item['questionsIncluded'][i]
       correctAnsValue = question[question['correctAnswer']]
       if True:
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
@@ -89,7 +90,10 @@ class QuizzesList(QuizzesListTemplate):
                                               ]
                                           }
                                       }
-                                  }
+                                  },
+                                "location": {
+                                  "index": i
+                                }
                               }
                             }
                           }]

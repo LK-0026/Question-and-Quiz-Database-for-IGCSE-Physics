@@ -60,12 +60,13 @@ class QuizzesList(QuizzesListTemplate):
                         ]
                       },
                       headers = {'Authorization': 'Bearer ' + accessToken})
+    
+    jsonDataAddQuestion = {"requests": []}
     for i in range(len(self.item['questionsIncluded'])):
       question = self.item['questionsIncluded'][i]
       correctAnsValue = question[question['correctAnswer']]
       imageUrl = None
-      jsonData = {
-                          "requests": [
+      jsonDataAddQuestion["requests"].append(
                             {
                               "createItem": {
                                 "item": {
@@ -109,11 +110,15 @@ class QuizzesList(QuizzesListTemplate):
                                 }
                               }
                             }
-                          ]
-                        }
+      )
       if question['image'] != None:
-        jsonData['requests'][0]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl}
+        imageUrl = anvil.server.call('getImageUrl', question.get_id())
+        jsonDataAddQuestion['requests'][i]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl, "properties": {"alignment": "CENTER"}}
         
+    anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
+                        data = jsonDataAddQuestion,
+                        headers = {'Authorization': 'Bearer ' + accessToken})
+    
     formURL = f"https://docs.google.com/forms/d/{formID}/edit"
     webbrowser.open(formURL)
     alert("Google Form for quiz has been created. If you have not been redirected, open google drive")

@@ -32,6 +32,4 @@ class FreqWrongQuestionsList(FreqWrongQuestionsListTemplate):
     elif self.item['correctAnswer'] == 'option4':
       self.label_option4.background = '#83f28f'
 
-  def button_addQues_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+

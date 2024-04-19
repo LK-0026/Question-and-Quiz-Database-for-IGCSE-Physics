@@ -61,7 +61,12 @@ class QuizzesList(QuizzesListTemplate):
     for i in range(len(self.item['questionsIncluded'])):
       question = self.item['questionsIncluded'][i]
       correctAnsValue = question[question['correctAnswer']]
-      print(question['text'] + " " + question['option1'] + " " + question['option2'])
+      print("Text:",question['text'])
+      print("Option1:",question['option1'])
+      print("Option2:",question['option2'])
+      print("Option3:",question['option3'])
+      print("Option4:",question['option4'])
+      print("Correct Ans:",correctAnsValue)
       if True:
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                            data = 
@@ -116,7 +121,7 @@ class QuizzesList(QuizzesListTemplate):
           
         },
         "location": {
-          "index": 0
+          "index": i
         }
       }
       

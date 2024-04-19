@@ -19,17 +19,21 @@ class Quizzes(QuizzesTemplate):
 
   #Searches for quizzes 
   def text_box_searchQuiz_pressed_enter(self, **event_args):
+    #Stores all the quizzes that matches with the search 
     rowsFound = []
+
     for row in app_tables.quizzes.search():
       if self.text_box_searchQuiz.text.lower() in row['quizName'].lower():
         rowsFound.append(row)
     
+    #Displays a text depending or not if quizzes are found with the search 
     if len(rowsFound) == 0:
       self.label_noResults.visible = True
     else:
       self.label_noResults.visible = False
     self.repeating_panel_quizzesList.items = rowsFound
 
+  #Goes to the form to enter the name of a new quiz
   def button_newQuiz_click(self, **event_args):
     open_form('Homepage.Quizzes.EnterQuizName')
         

@@ -48,12 +48,12 @@ components:
       properties: {item_template: Homepage.Quizzes.EnterQuizName.MakingQuiz.QuestionsListForAdding}
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
-    - name: button_saveQuiz
+    - name: button_saveResults
       properties: {text: Save Changes, role: outlined-button, background: '#0aefff',
         bold: true, foreground: 'theme:On Primary', visible: false, icon: 'fa:save'}
       type: Button
       layout_properties: {grid_position: 'IYTUZU,VWNFHP'}
-      event_bindings: {click: button_saveQuiz_click}
+      event_bindings: {click: button_saveResults_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links

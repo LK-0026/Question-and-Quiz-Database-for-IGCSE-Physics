@@ -10,11 +10,12 @@ services:
     client_secret_enc: s/Y7l5Opmfxy/YNQQcuq2VsGii8SOnU6zYWnr2aTSfLa5NoWQfz2LMEipNDPnpGOV6GRqs7hbW1lyxxjKviFEHwlDXd1CE2fhFlq3fWLbO10G6Bj+G+HkjnEFHVTc3a3lEK69d/LaXC8W1pt4gF4sKH4yqvyXRc0oT/hq4s/uHfMQZxGN4CiRgmkZkXvFc0coAMtDbxWxH4nTaeGEQ==,
     app_origin_redirect: true}
 startup: {type: form, module: Homepage}
-package_name: Question_and_Quiz_Database
+package_name: Question_and_Quiz_Database_for_IGCSE_Physics
 allow_embedding: false
-name: Question and Quiz Database
+name: Question and Quiz Database for IGCSE Physics
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
+metadata: {title: Question and Quiz Database}
 startup_form: null
 db_schema:
   questions:

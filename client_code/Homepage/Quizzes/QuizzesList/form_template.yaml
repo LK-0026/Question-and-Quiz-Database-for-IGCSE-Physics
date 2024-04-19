@@ -32,3 +32,5 @@ components:
   type: Button
   layout_properties: {grid_position: 'CTJHRV,GEJSBI ZLJQNQ,ORCQFK'}
   event_bindings: {click: button_delete_click}
+custom_component: false
+properties: []

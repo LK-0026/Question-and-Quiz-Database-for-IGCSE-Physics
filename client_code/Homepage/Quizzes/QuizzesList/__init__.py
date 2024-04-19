@@ -78,7 +78,7 @@ class QuizzesList(QuizzesListTemplate):
                 "correctAnswers": {
                   "answers": [
                     {
-                      "value": "2"
+                      "value": correctAnsValue
                     }
                     
                   ]
@@ -91,19 +91,19 @@ class QuizzesList(QuizzesListTemplate):
                 "type": "RADIO",
                 "options": [
                   {
-                    "value": "1"
+                    "value": question["option1"]
                     
                   },
                   {
-                    "value": "2"
+                    "value": question['option2']
                     
                   },
                   {
-                    "value": "3"
+                    "value": question['option3']
                     
                   },
                   {
-                    "value": "4"
+                    "value": question['option4']
                     
                   }
                   
@@ -126,7 +126,7 @@ class QuizzesList(QuizzesListTemplate):
   
 },
                         headers = {'Authorization': 'Bearer ' + accessToken})
-    formURL = "https://docs.google.com/forms/d/" + formID + "/edit"
+    formURL = f"https://docs.google.com/forms/d/{formID}/edit"
     webbrowser.open(formURL)
     alert("Google Form for quiz has been created. If you have not been redirected, open google drive")
 

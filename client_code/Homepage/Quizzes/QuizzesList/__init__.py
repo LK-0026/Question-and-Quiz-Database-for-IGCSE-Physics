@@ -8,6 +8,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
 import webbrowser
+import anvil.media
+from anvil.js import window
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):
@@ -67,69 +69,143 @@ class QuizzesList(QuizzesListTemplate):
       print("Option3:",question['option3'])
       print("Option4:",question['option4'])
       print("Correct Ans:",correctAnsValue)
-      if True:
+      if question['image'] != None:
+        image = question['image']
+        tempUrl = anvil.media.TempUrl(image)
+        imageUrl = tempUrl.url
+        print(imageUrl)
+        tempUrl.revoke()
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                            data = 
-{
-  "requests": [
-    {
-      "createItem": {
-        "item": {
-          "title": "What is 1+1",
-          "questionItem": {
-            "question": {
-              "required": True,
-              "grading": {
-                "correctAnswers": {
-                  "answers": [
-                    {
-                      "value": correctAnsValue
-                    }
-                    
-                  ]
-                },
-                "pointValue": 1
-                
-              },
-              "choiceQuestion": {
-                "shuffle": True,
-                "type": "RADIO",
-                "options": [
-                  {
-                    "value": question["option1"]
-                    
-                  },
-                  {
-                    "value": question['option2']
-                    
-                  },
-                  {
-                    "value": question['option3']
-                    
-                  },
-                  {
-                    "value": question['option4']
-                    
-                  }
-                  
-                ]
-              }
-              
-            }
-            
-          }
-          
-        },
-        "location": {
-          "index": i
-        }
-      }
-      
-    }
-    
-  ]
-  
-},
+                        {
+                          "requests": [
+                            {
+                              "createItem": {
+                                "item": {
+                                  "title": question['text'],
+                                  "imageItem": {
+                                    "image": {
+                                      "sourceUri": str(imageUrl)
+                                    }
+                                  },
+                                  "questionItem": {
+                                    "question": {
+                                      "required": True,
+                                      "grading": {
+                                        "correctAnswers": {
+                                          "answers": [
+                                            {
+                                              "value": correctAnsValue
+                                            }
+                                            
+                                          ]
+                                        },
+                                        "pointValue": 1
+                                        
+                                      },
+                                      "choiceQuestion": {
+                                        "shuffle": True,
+                                        "type": "RADIO",
+                                        "options": [
+                                          {
+                                            "value": question["option1"]
+                                            
+                                          },
+                                          {
+                                            "value": question['option2']
+                                            
+                                          },
+                                          {
+                                            "value": question['option3']
+                                            
+                                          },
+                                          {
+                                            "value": question['option4']
+                                            
+                                          }
+                                          
+                                        ]
+                                      }
+                                      
+                                    }
+                                    
+                                  }
+                                  
+                                },
+                                "location": {
+                                  "index": i
+                                }
+                              }
+                              
+                            }
+                            
+                          ]
+                          
+                        },
+                        headers = {'Authorization': 'Bearer ' + accessToken})
+      else:
+        anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
+                           data = 
+                        {
+                          "requests": [
+                            {
+                              "createItem": {
+                                "item": {
+                                  "title": question['text'],
+                                  "questionItem": {
+                                    "question": {
+                                      "required": True,
+                                      "grading": {
+                                        "correctAnswers": {
+                                          "answers": [
+                                            {
+                                              "value": correctAnsValue
+                                            }
+                                            
+                                          ]
+                                        },
+                                        "pointValue": 1
+                                        
+                                      },
+                                      "choiceQuestion": {
+                                        "shuffle": True,
+                                        "type": "RADIO",
+                                        "options": [
+                                          {
+                                            "value": question["option1"]
+                                            
+                                          },
+                                          {
+                                            "value": question['option2']
+                                            
+                                          },
+                                          {
+                                            "value": question['option3']
+                                            
+                                          },
+                                          {
+                                            "value": question['option4']
+                                            
+                                          }
+                                          
+                                        ]
+                                      }
+                                      
+                                    }
+                                    
+                                  }
+                                  
+                                },
+                                "location": {
+                                  "index": i
+                                }
+                              }
+                              
+                            }
+                            
+                          ]
+                          
+                        },
                         headers = {'Authorization': 'Bearer ' + accessToken})
     formURL = f"https://docs.google.com/forms/d/{formID}/edit"
     webbrowser.open(formURL)

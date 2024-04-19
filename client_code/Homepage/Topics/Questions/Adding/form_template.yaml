@@ -41,6 +41,13 @@ components:
     properties: {}
     type: DropDown
     layout_properties: {grid_position: 'DMZARG,GKFBQZ'}
+  - name: label_2
+    properties: {italic: true, text: 'Disclaimer: Don''t put any newline or linebreak
+        in either the "Question Text" or any of the options. This will cause an error.
+
+        ', underline: true, align: left}
+    type: Label
+    layout_properties: {grid_position: 'FVXYFB,BVUFQA'}
   - name: label_questionText
     properties: {text: 'Question Text:', bold: true, icon_align: left}
     type: Label
@@ -83,6 +90,13 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'AAZYGS,MKZEUV'}
+  - name: label_2_copy
+    properties: {italic: true, text: 'Disclaimer: Don''t put any newline and/or linebreak
+        in either the "Question Text" or any of the options. This will cause an error.
+
+        ', underline: true}
+    type: Label
+    layout_properties: {grid_position: 'IIEZXH,ZXWZUG'}
   - name: label_option1
     properties: {text: 'Option 1:', bold: true, icon_align: left}
     type: Label

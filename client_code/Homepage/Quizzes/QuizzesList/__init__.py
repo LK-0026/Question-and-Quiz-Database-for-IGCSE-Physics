@@ -70,11 +70,8 @@ class QuizzesList(QuizzesListTemplate):
       print("Option4:",question['option4'])
       print("Correct Ans:",correctAnsValue)
       if question['image'] != None:
-        image = question['image']
-        tempUrl = anvil.media.TempUrl(image)
-        imageUrl = tempUrl.url
+        imageUrl = anvil.server.call("getImage")
         print(imageUrl)
-        tempUrl.revoke()
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                            data = 
                         {

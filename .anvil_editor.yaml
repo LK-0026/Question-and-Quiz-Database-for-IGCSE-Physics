@@ -17,6 +17,7 @@ unique_ids:
     Homepage.Topics.Questions: '1707222475825501164006510.9311'
   modules: {}
   server_modules:
+    imageUrlPubliclyAccesible: '1713522362471847209229163.4939'
     subtopicsList: '170722085207819858114354.198265'
   assets:
     standard-page.html: CV7X5SPUPE6QTJFEEMMTFB5X2YEB2QL5

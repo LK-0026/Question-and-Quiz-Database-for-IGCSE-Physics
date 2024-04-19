@@ -61,56 +61,70 @@ class QuizzesList(QuizzesListTemplate):
     for i in range(len(self.item['questionsIncluded'])):
       question = self.item['questionsIncluded'][i]
       correctAnsValue = question[question['correctAnswer']]
+      print(question['text'] + " " + question['option1'] + " " + question['option2'])
       if True:
         anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                            data = 
-                           {
-                            "requests": [
-                            {
-                              "createItem": {
-                                "item": {
-                                  "title": question['text'],
-                                  "questionItem": {
-                                    "question": {
-                                      "required": True,
-                                      "grading": {
-                                        "correctAnswers": {
-                                          "answers": [
-                                            {
-                                              "value": correctAnsValue
-                                            }
-                                          ]
-                                        },
-                                        "pointValue": 1
-                                      },
-                                      "choiceQuestion": {
-                                        "shuffle": True,
-                                        "options": [
-                                          {
-                                            "value": question['option1']
-                                          },
-                                          {
-                                            "value": question['option2']
-                                          },
-                                          {
-                                            "value": question['option3']
-                                          },
-                                          {
-                                            "value": question['option4']
-                                          }
-                                        ],
-                                        "type": "RADIO"
-                                      }
-                                    }
-                                  }
-                                },
-                                "location": {
-                                  "index": i
-                                }
-                              }
-                            }
-                          ]
-                        },
+{
+  "requests": [
+    {
+      "createItem": {
+        "item": {
+          "title": "What is 1+1",
+          "questionItem": {
+            "question": {
+              "required": True,
+              "grading": {
+                "correctAnswers": {
+                  "answers": [
+                    {
+                      "value": "2"
+                    }
+                    
+                  ]
+                },
+                "pointValue": 1
+                
+              },
+              "choiceQuestion": {
+                "shuffle": True,
+                "type": "RADIO",
+                "options": [
+                  {
+                    "value": "1"
+                    
+                  },
+                  {
+                    "value": "2"
+                    
+                  },
+                  {
+                    "value": "3"
+                    
+                  },
+                  {
+                    "value": "4"
+                    
+                  }
+                  
+                ]
+              }
+              
+            }
+            
+          }
+          
+        },
+        "location": {
+          "index": 0
+        }
+      }
+      
+    }
+    
+  ]
+  
+},
                         headers = {'Authorization': 'Bearer ' + accessToken})
     formURL = "https://docs.google.com/forms/d/" + formID + "/edit"
     webbrowser.open(formURL)

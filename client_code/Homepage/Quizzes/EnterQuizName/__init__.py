@@ -14,9 +14,10 @@ class EnterQuizName(EnterQuizNameTemplate):
   #Opens the tab which contains all the question in the database to be added into a quizzes
   #A parameter which contains the quiz name from the text box is passed into the next form
   def enter_click(self, **event_args):
-    #Gives na alert if the user does't provide any data in the textbox
+    #Gives an alert if the user does't provide any data in the textbox
     if self.text_box_quizName.text == "":
       alert("You have to give a name for this quiz.")
+    #Opens the form containing all the questions
     else:
       open_form('Homepage.Quizzes.EnterQuizName.MakingQuiz', quizName = self.text_box_quizName.text)
 

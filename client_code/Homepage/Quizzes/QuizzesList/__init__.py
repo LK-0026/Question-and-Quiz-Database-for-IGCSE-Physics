@@ -63,147 +63,57 @@ class QuizzesList(QuizzesListTemplate):
     for i in range(len(self.item['questionsIncluded'])):
       question = self.item['questionsIncluded'][i]
       correctAnsValue = question[question['correctAnswer']]
-      print("Text:",question['text'])
-      print("Option1:",question['option1'])
-      print("Option2:",question['option2'])
-      print("Option3:",question['option3'])
-      print("Option4:",question['option4'])
-      print("Correct Ans:",correctAnsValue)
+      imageUrl = None
+      jsonData = {
+                          "requests": [
+                            {
+                              "createItem": {
+                                "item": {
+                                  "title": question['text'],
+                                  "questionItem": {
+                                    "question": {
+                                      "required": True,
+                                      "grading": {
+                                        "correctAnswers": {
+                                          "answers": [
+                                            {
+                                              "value": correctAnsValue
+                                            }
+                                          ]
+                                        },
+                                        "pointValue": 1
+                                      },
+                                      "choiceQuestion": {
+                                        "shuffle": True,
+                                        "type": "RADIO",
+                                        "options": [
+                                          {
+                                            "value": question["option1"]
+                                          },
+                                          {
+                                            "value": question['option2']
+                                          },
+                                          {
+                                            "value": question['option3']
+                                          },
+                                          {
+                                            "value": question['option4']
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "location": {
+                                  "index": i
+                                }
+                              }
+                            }
+                          ]
+                        }
       if question['image'] != None:
-        imageUrl = question['image'].url
-        print(imageUrl)
-        anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
-                           data = 
-                        {
-                          "requests": [
-                            {
-                              "createItem": {
-                                "item": {
-                                  "title": question['text'],
-                                  "imageItem": {
-                                    "image": {
-                                      "sourceUri": str(imageUrl)
-                                    }
-                                  },
-                                  "questionItem": {
-                                    "question": {
-                                      "required": True,
-                                      "grading": {
-                                        "correctAnswers": {
-                                          "answers": [
-                                            {
-                                              "value": correctAnsValue
-                                            }
-                                            
-                                          ]
-                                        },
-                                        "pointValue": 1
-                                        
-                                      },
-                                      "choiceQuestion": {
-                                        "shuffle": True,
-                                        "type": "RADIO",
-                                        "options": [
-                                          {
-                                            "value": question["option1"]
-                                            
-                                          },
-                                          {
-                                            "value": question['option2']
-                                            
-                                          },
-                                          {
-                                            "value": question['option3']
-                                            
-                                          },
-                                          {
-                                            "value": question['option4']
-                                            
-                                          }
-                                          
-                                        ]
-                                      }
-                                      
-                                    }
-                                    
-                                  }
-                                  
-                                },
-                                "location": {
-                                  "index": i
-                                }
-                              }
-                              
-                            }
-                            
-                          ]
-                          
-                        },
-                        headers = {'Authorization': 'Bearer ' + accessToken})
-      else:
-        anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
-                           data = 
-                        {
-                          "requests": [
-                            {
-                              "createItem": {
-                                "item": {
-                                  "title": question['text'],
-                                  "questionItem": {
-                                    "question": {
-                                      "required": True,
-                                      "grading": {
-                                        "correctAnswers": {
-                                          "answers": [
-                                            {
-                                              "value": correctAnsValue
-                                            }
-                                            
-                                          ]
-                                        },
-                                        "pointValue": 1
-                                        
-                                      },
-                                      "choiceQuestion": {
-                                        "shuffle": True,
-                                        "type": "RADIO",
-                                        "options": [
-                                          {
-                                            "value": question["option1"]
-                                            
-                                          },
-                                          {
-                                            "value": question['option2']
-                                            
-                                          },
-                                          {
-                                            "value": question['option3']
-                                            
-                                          },
-                                          {
-                                            "value": question['option4']
-                                            
-                                          }
-                                          
-                                        ]
-                                      }
-                                      
-                                    }
-                                    
-                                  }
-                                  
-                                },
-                                "location": {
-                                  "index": i
-                                }
-                              }
-                              
-                            }
-                            
-                          ]
-                          
-                        },
-                        headers = {'Authorization': 'Bearer ' + accessToken})
+        jsonData['requests'][0]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl}
+        
     formURL = f"https://docs.google.com/forms/d/{formID}/edit"
     webbrowser.open(formURL)
     alert("Google Form for quiz has been created. If you have not been redirected, open google drive")

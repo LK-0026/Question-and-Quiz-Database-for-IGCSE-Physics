@@ -5,7 +5,13 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
-@anvil.server.http_endpoint('/image/:row_id')
-def get_image(row_id, **p):
-  row = app_tables.questions.get_by_id(row_id)
-  return row['image']
+@anvil.server.http_endpoint('/images/:id')
+def get_image(id):
+    print(f"Request was made for image with id {id}")
+    imageRow = app_tables.questions.get_by_id(id)
+    image = imageRow['image']
+    return image
+
+@anvil.server.callable()
+def get_image_url_from_id(id):
+    return f"{anvil.server.get_api_origin()}/images/{id}"

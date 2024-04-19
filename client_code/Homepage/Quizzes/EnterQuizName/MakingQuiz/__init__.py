@@ -12,14 +12,18 @@ class MakingQuiz(MakingQuizTemplate):
     self.init_components(**properties)
     self.quizName = self.label_quizName.text = quizName
     self.topics = ["Motion, forces and energy", "Thermal physics", "Waves", "Electricity and magnetism","Nuclear physics","Space physics"]
+    
     #Sets the items of the dropdown box to the list of topics
     self.drop_down_topicsList.items = ["All"] + self.topics
+    #Initially fills the square with all the questions in the bank
     self.repeating_panel_questionsList.items = app_tables.questions.search()
     
-    #List of questions that are saved for the quiz
+    #Collection questions that are saved for the quiz
     self.savedQuestions = set()
 
+  #Function that changes the value of the subtopic dropdown depending on the topic
   def drop_down_topicsList_change(self, **event_args):
+    #Makes the subtopic dropdown empty if all the topics are selected
     if self.drop_down_topicsList.selected_value == "All":
       self.drop_down_subtopicsList.items = []  
     else:
@@ -29,6 +33,7 @@ class MakingQuiz(MakingQuizTemplate):
       topicChosen = self.drop_down_topicsList.selected_value
       self.drop_down_subtopicsList.items = ["All"] + self.subtopics[topicChosen]
 
+  #
   def button_applyFilter_click(self, **event_args):
     topicChosen = self.drop_down_topicsList.selected_value
     subtopicChosen = self.drop_down_subtopicsList.selected_value

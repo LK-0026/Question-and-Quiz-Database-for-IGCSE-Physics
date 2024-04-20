@@ -123,7 +123,9 @@ class QuizzesList(QuizzesListTemplate):
       if question['image'] != None:
         imageUrl = anvil.server.call('getImageUrl', question.get_id())
         jsonDataUpdate['requests'][i+1]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl, "properties": {"alignment": "CENTER"}}
-        
+
+    print(jsonDataUpdate)
+    
     #Adds all the questions to the google quiz form
     anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                         data = jsonDataUpdate,

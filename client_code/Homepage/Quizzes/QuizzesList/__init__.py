@@ -49,36 +49,31 @@ class QuizzesList(QuizzesListTemplate):
     
     formID = createGFormResponse["formId"]
     
-    #Converts the google form into a quiz
-    anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
-                      data = 
-                       {
-                        "requests": [
-                          {
-                            "updateSettings": {
-                              "settings": {
-                                "quizSettings": {
-                                  "isQuiz": True
-                                }
-                              },
-                            "updateMask": "quizSettings.isQuiz"
-                            }
-                          }
-                        ]
-                      },
-                      headers = {'Authorization': 'Bearer ' + accessToken})
-
-    #Stores the json data for the questions to be added into the google form
-    jsonDataAddQuestion = {"requests": []}
-
+    #Stores the json data for the questions to be added into the google form and converting it to the quiz
+    jsonDataUpdate = {"requests": []}
+    
+    #Index 0 stores the data to of the request's list value stores the data to convert the form to a quiz
+    jsonDataUpdate["requests"].append(
+                                {
+                                  "updateSettings": {
+                                    "settings": {
+                                      "quizSettings": {
+                                        "isQuiz": True
+                                      }
+                                    },
+                                    "updateMask": "quizSettings.isQuiz"
+                                  }
+                                })
+    
     #Iterates through each question
     for i in range(len(self.item['questionsIncluded'])):
       question = self.item['questionsIncluded'][i]
       correctAnsValue = question[question['correctAnswer']]
+      print(question)
       imageUrl = None
       
       #Adds the question to the array of requests
-      jsonDataAddQuestion["requests"].append(
+      jsonDataUpdate["requests"].append(
                             {
                               "createItem": {
                                 "item": {
@@ -127,11 +122,11 @@ class QuizzesList(QuizzesListTemplate):
       #If the question has an image, adds an additional element to the dictionary for the json data containing the image details
       if question['image'] != None:
         imageUrl = anvil.server.call('getImageUrl', question.get_id())
-        jsonDataAddQuestion['requests'][i]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl, "properties": {"alignment": "CENTER"}}
+        jsonDataUpdate['requests'][i+1]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl, "properties": {"alignment": "CENTER"}}
         
     #Adds all the questions to the google quiz form
     anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
-                        data = jsonDataAddQuestion,
+                        data = jsonDataUpdate,
                         headers = {'Authorization': 'Bearer ' + accessToken})
     
     #Redirects to the google form to make any final edits

@@ -126,6 +126,7 @@ class QuizzesList(QuizzesListTemplate):
       
       #If the question has an image, adds an additional element to the dictionary for the json data containing the image details
       if question['image'] != None:
+        #Creates a publicly accessible link for the image
         imageUrl = anvil.server.call('getImageUrl', question.get_id())
         jsonDataAddQuestion['requests'][i]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl, "properties": {"alignment": "CENTER"}}
         

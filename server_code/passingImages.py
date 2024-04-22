@@ -6,7 +6,7 @@ from anvil.tables import app_tables
 import anvil.server
 
 
-#Http API to pass the image
+#Http API to pass the image 
 @anvil.server.http_endpoint('/images/:id')
 def getImage(id):
     print(f"Request was made for image with id {id}")

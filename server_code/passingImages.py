@@ -5,8 +5,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
+#Both methods by @pmassowalsh from Anvil Forums, Source: https://anvil.works/forum/t/anvil-media-url-not-permanent/15472
 
-#Http API to pass the image 
+#Anbil Http API to pass the image 
 @anvil.server.http_endpoint('/images/:id')
 def getImage(id):
     print(f"Request was made for image with id {id}")

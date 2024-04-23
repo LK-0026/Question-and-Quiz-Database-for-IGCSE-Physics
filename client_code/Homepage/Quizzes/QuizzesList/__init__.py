@@ -38,6 +38,7 @@ class QuizzesList(QuizzesListTemplate):
     accessToken = anvil.google.auth.get_user_access_token()
     
     #Creates a google form
+    #Use of create method from Google's documentation Google Form API, Link: https://developers.google.com/forms/api/reference/rest/v1/forms/create 
     createGFormResponse = anvil.http.request("https://forms.googleapis.com/v1/forms/", method = "POST", json = True,
                           data = 
                           {
@@ -50,6 +51,7 @@ class QuizzesList(QuizzesListTemplate):
     formID = createGFormResponse["formId"]
     
     #Converts the google form into a quiz
+    #Use of batchUpdate method from Google's documentation Google Form API, Link: https://developers.google.com/forms/api/reference/rest/v1/forms/batchUpdate
     anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                       data = 
                        {
@@ -78,6 +80,7 @@ class QuizzesList(QuizzesListTemplate):
       imageUrl = None
       
       #Adds the question to the array of requests
+      #Use of batchUpdate method from Google's documentation Google Form API, Link: https://developers.google.com/forms/api/reference/rest/v1/forms/batchUpdate
       jsonDataAddQuestion["requests"].append(
                             {
                               "createItem": {
@@ -126,7 +129,7 @@ class QuizzesList(QuizzesListTemplate):
       
       #If the question has an image, adds an additional element to the dictionary for the json data containing the image details
       if question['image'] != None:
-        #Creates a publicly accessible link for the image
+        #Creates a publicly accessible link for the image that can be accessed by Google's API
         imageUrl = anvil.server.call('getImageUrl', question.get_id())
         jsonDataAddQuestion['requests'][i]['createItem']['item']['questionItem']["image"] = {"sourceUri": imageUrl, "properties": {"alignment": "CENTER"}}
         

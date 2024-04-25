@@ -56,7 +56,7 @@ class QuestionsList(QuestionsListTemplate):
   def button_editQuestion_click(self, **event_args):
     #Opens a form which displays all the data of the selected question 
     questionID = self.item.get_id()
-    open_form('Homepage.Topics.Questions.QuestionsList.Editing', 
+    open_form('Homepage.Topics.Questions.QuestionsList.EditingQuestions', 
               topic = self.item['topic'], 
               subtopic = self.item['subtopic'], 
               questionText = self.item['text'], 

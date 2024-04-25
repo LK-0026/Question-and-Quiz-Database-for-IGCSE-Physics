@@ -79,7 +79,7 @@ class Questions(QuestionsTemplate):
   #Leads to another form which allows the user to add a question
   #Method is called when the button is clicked
   def outlined_button_manualAdd_click(self, **event_args):
-    open_form('Homepage.Topics.Questions.Adding', topicChosen = self.topicChosen)
+    open_form('Homepage.Topics.Questions.AddingQuestions', topicChosen = self.topicChosen)
   
   #Opens the previous form when button is clicked
   def back_button_click(self, **event_args):

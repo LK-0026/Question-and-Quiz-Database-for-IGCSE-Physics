@@ -36,4 +36,3 @@ class Quizzes(QuizzesTemplate):
   #Goes to the form to enter the name of a new quiz
   def button_newQuiz_click(self, **event_args):
     open_form('Homepage.Quizzes.EnterQuizName')
-        

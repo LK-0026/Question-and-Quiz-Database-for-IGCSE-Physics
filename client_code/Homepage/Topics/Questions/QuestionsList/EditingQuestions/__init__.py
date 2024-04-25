@@ -1,4 +1,4 @@
-from ._anvil_designer import EditingTemplate
+from ._anvil_designer import EditingQuestionsTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
@@ -7,7 +7,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Editing(EditingTemplate):
+class EditingQuestions(EditingQuestionsTemplate):
   def __init__(self, topic, subtopic, questionText, image, option1, option2, option3, option4, correctAnswer, questionID, **properties):
     self.init_components(**properties)
     self.topicChosen = topic

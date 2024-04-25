@@ -1,4 +1,4 @@
-from ._anvil_designer import AddingTemplate
+from ._anvil_designer import AddingQuestionsTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
@@ -7,7 +7,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Adding(AddingTemplate):
+class AddingQuestions(AddingQuestionsTemplate):
   def __init__(self, topicChosen,**properties):
     self.init_components(**properties)
     self.topicChosen = topicChosen

@@ -27,7 +27,7 @@ class EditFreqWrongQuestions(EditFreqWrongQuestionsTemplate):
   #Views all of the questions in the quiz
   def button_viewAll_click(self, **event_args):
     #Sets the section to show all the questions in the quiz
-    self.repeating_panel_quizQuestions.items = quizRow['questionsIncluded']
+    self.repeating_panel_quizQuestions.items = self.quizRow['questionsIncluded']
 
     #Hides the save results button
     self.button_saveResults.visible = False

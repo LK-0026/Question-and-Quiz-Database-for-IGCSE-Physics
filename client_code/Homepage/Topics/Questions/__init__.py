@@ -36,7 +36,8 @@ class Questions(QuestionsTemplate):
       self.repeating_panel_questionsList.items = app_tables.questions.search(topic = self.topicChosen)
     #Searches from the 'question' database the questions with the selected subtopic from the dropdown box 
     else:
-      self.repeating_panel_questionsList.items = app_tables.questions.search(topic = self.topicChosen, subtopic = self.drop_down_subtopics.selected_value)
+      self.repeating_panel_questionsList.items = app_tables.questions.search(topic = self.topicChosen, 
+                                                                             subtopic = self.drop_down_subtopics.selected_value)
 
   #Adds a subtopic to the current list of subtopics
   #Method is called when the button is clicked

@@ -1,6 +1,7 @@
 from ._anvil_designer import QuizzesListTemplate
 from anvil import *
-import anvil.google.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -32,11 +33,14 @@ class QuizzesList(QuizzesListTemplate):
   #Creates a google forms from the quiz using a Google API
   def button_createGForms_click(self, **event_args):
     #Asks for authorization from the user
-    anvil.google.auth.login(["https://www.googleapis.com/auth/drive","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/forms.body"])
+    anvil.google.auth.login(["https://www.googleapis.com/auth/drive",
+                             "https://www.googleapis.com/auth/drive.file",
+                             "https://www.googleapis.com/auth/forms.body"])
     accessToken = anvil.google.auth.get_user_access_token()
     
     #Creates a google form
-    #Use of create method from Google's documentation Google Form API, Link: https://developers.google.com/forms/api/reference/rest/v1/forms/create 
+    #Use of create method from Google's documentation Google Form API
+    #Link: https://developers.google.com/forms/api/reference/rest/v1/forms/create 
     createGFormResponse = anvil.http.request("https://forms.googleapis.com/v1/forms/", method = "POST", json = True,
                           data = 
                           {

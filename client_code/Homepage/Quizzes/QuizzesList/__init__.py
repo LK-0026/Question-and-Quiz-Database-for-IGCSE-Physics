@@ -82,7 +82,8 @@ class QuizzesList(QuizzesListTemplate):
       imageUrl = None
       
       #Adds the question to the array of requests
-      #Use of batchUpdate method from Google's documentation Google Form API, Link: https://developers.google.com/forms/api/reference/rest/v1/forms/batchUpdate
+      #Use of batchUpdate method from Google's documentation Google Form API, 
+      #Link: https://developers.google.com/forms/api/reference/rest/v1/forms/batchUpdate
       jsonDataAddQuestion["requests"].append(
                             {
                               "createItem": {

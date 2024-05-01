@@ -8,7 +8,6 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
 import webbrowser
-import anvil.media
 
 class QuizzesList(QuizzesListTemplate):
   def __init__(self, **properties):

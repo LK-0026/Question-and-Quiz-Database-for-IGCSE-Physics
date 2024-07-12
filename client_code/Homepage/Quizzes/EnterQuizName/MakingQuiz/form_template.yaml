@@ -9,16 +9,14 @@ components:
   layout_properties: {slot: default}
   components:
   - name: back_button
-    properties: {text: Back, visible: true, enabled: true, align: left, italic: true,
-      role: filled-button, underline: false}
+    properties: {text: Back, visible: true, enabled: true, align: left, italic: true, role: filled-button, underline: false}
     type: Button
     layout_properties: {grid_position: 'VBVJUY,ZEBVSU'}
     event_bindings: {click: back_button_click}
     data_bindings:
     - {property: border, code: '', writeback: false}
   - name: label_quizName
-    properties: {align: center, text: QuizName, bold: true, spacing_below: large,
-      font_size: 20}
+    properties: {align: center, text: QuizName, bold: true, spacing_below: large, font_size: 20}
     type: Label
     layout_properties: {grid_position: 'VBVJUY,YGSZYP'}
   - name: spacer_1
@@ -40,8 +38,7 @@ components:
     layout_properties: {grid_position: 'ZZQYDV,CPLLSC'}
     event_bindings: {click: button_viewSaved_click}
   - name: card_filter
-    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}',
-      background: '#b5b0ba'}
+    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}', background: '#b5b0ba'}
     type: ColumnPanel
     layout_properties: {grid_position: 'FMFWWO,FWPYDY'}
     components:
@@ -59,8 +56,7 @@ components:
       layout_properties: {grid_position: 'ASRHMR,RJTUQY XKRONB,QKJDGA'}
       event_bindings: {change: drop_down_topicsList_change}
     - name: label_1
-      properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter',
-        role: null, foreground: '#0f97ff', background: '', italic: false}
+      properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter', role: null, foreground: '#0f97ff', background: '', italic: false}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,ZJWAFU VRQJUL,PCJHIT'}
     - name: label_2_copy
@@ -101,13 +97,11 @@ components:
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
     - name: label_noResults
-      properties: {align: center, text: No Results Found, foreground: '#c2c2c2', bold: false,
-        underline: false, font_size: 20, italic: true, visible: false}
+      properties: {align: center, text: No Results Found, foreground: '#c2c2c2', bold: false, underline: false, font_size: 20, italic: true, visible: false}
       type: Label
       layout_properties: {grid_position: 'JKLXDS,LSDZNI'}
   - name: button_addQuiz
-    properties: {text: Make Quiz, role: outlined-button, background: '#45f514', bold: true,
-      foreground: 'theme:On Primary', visible: false, icon: 'fa:plus-square-o'}
+    properties: {text: Make Quiz, role: outlined-button, background: '#45f514', bold: true, foreground: 'theme:On Primary', visible: false, icon: 'fa:plus-square-o'}
     type: Button
     layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
     event_bindings: {click: button_addQuiz_click}

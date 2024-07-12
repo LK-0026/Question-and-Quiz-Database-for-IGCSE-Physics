@@ -5,16 +5,12 @@ services:
   server_config: {}
 - source: /runtime/services/google.yml
   client_config: {}
-  server_config: {enc_delegation_refresh_token: ig8w/egQJbMlj7k0xGh+i8fYVGlfGe/a1mfWGv7/AXzOKxFyJA2G7HZBse8u18vVuDwyuJ/G9eh4y2Ayas9bsdY1JAXMJ7gtZ/rEfocwNS0to1wpWAJ0+87FkE2m4JUZUr/R20VScHc9ZqCW3ROq9yHAlObPqRsc8a9cJeqI1xdA0bcXgcEK3fe9sQtGvApWJyhJ5iPSFeY5WJuCrl5rjMx9EeEhvrshzsqrDv6k9J9ugUFGkEJEeePiiMbC+xDztD0ItfsU13nUWtxhUsrwuTXgQrrAkk9vAe48Uo7u5QNJUWiLXh1OySYCEo2EPQ==,
-    client_id: 364548305841-fm18gsd4i91sm9c93skfb93k8jpsd2gf.apps.googleusercontent.com,
-    client_secret_enc: s/Y7l5Opmfxy/YNQQcuq2VsGii8SOnU6zYWnr2aTSfLa5NoWQfz2LMEipNDPnpGOV6GRqs7hbW1lyxxjKviFEHwlDXd1CE2fhFlq3fWLbO10G6Bj+G+HkjnEFHVTc3a3lEK69d/LaXC8W1pt4gF4sKH4yqvyXRc0oT/hq4s/uHfMQZxGN4CiRgmkZkXvFc0coAMtDbxWxH4nTaeGEQ==,
-    app_origin_redirect: true}
+  server_config: {enc_delegation_refresh_token: ig8w/egQJbMlj7k0xGh+i8fYVGlfGe/a1mfWGv7/AXzOKxFyJA2G7HZBse8u18vVuDwyuJ/G9eh4y2Ayas9bsdY1JAXMJ7gtZ/rEfocwNS0to1wpWAJ0+87FkE2m4JUZUr/R20VScHc9ZqCW3ROq9yHAlObPqRsc8a9cJeqI1xdA0bcXgcEK3fe9sQtGvApWJyhJ5iPSFeY5WJuCrl5rjMx9EeEhvrshzsqrDv6k9J9ugUFGkEJEeePiiMbC+xDztD0ItfsU13nUWtxhUsrwuTXgQrrAkk9vAe48Uo7u5QNJUWiLXh1OySYCEo2EPQ==, client_id: 364548305841-fm18gsd4i91sm9c93skfb93k8jpsd2gf.apps.googleusercontent.com, client_secret_enc: s/Y7l5Opmfxy/YNQQcuq2VsGii8SOnU6zYWnr2aTSfLa5NoWQfz2LMEipNDPnpGOV6GRqs7hbW1lyxxjKviFEHwlDXd1CE2fhFlq3fWLbO10G6Bj+G+HkjnEFHVTc3a3lEK69d/LaXC8W1pt4gF4sKH4yqvyXRc0oT/hq4s/uHfMQZxGN4CiRgmkZkXvFc0coAMtDbxWxH4nTaeGEQ==, app_origin_redirect: true}
 startup: {type: form, module: Homepage}
 package_name: Question_and_Quiz_Database_for_IGCSE_Physics
 allow_embedding: false
 name: Question and Quiz Database for IGCSE Physics
-runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
-  server_spec: null}
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox, server_spec: null}
 metadata: {title: Question and Quiz Database}
 startup_form: null
 db_schema:

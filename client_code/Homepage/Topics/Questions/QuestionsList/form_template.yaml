@@ -60,14 +60,12 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'ZSJSFY,KZHWXE'}
   - name: button_editQuestion
-    properties: {text: Edit Question, role: null, background: '#ff8f33', foreground: 'theme:On
-        Primary'}
+    properties: {text: Edit Question, role: null, background: '#ff8f33', foreground: 'theme:On Primary'}
     type: Button
     layout_properties: {grid_position: 'ZSJSFY,JWJGJV'}
     event_bindings: {click: button_editQuestion_click}
   - name: button_deleteQuestion
-    properties: {text: ' Delete Question', role: null, foreground: 'theme:On Primary',
-      background: '#FF0000'}
+    properties: {text: ' Delete Question', role: null, foreground: 'theme:On Primary', background: '#FF0000'}
     type: Button
     layout_properties: {grid_position: 'ZSJSFY,SMPZNN'}
     data_bindings: []

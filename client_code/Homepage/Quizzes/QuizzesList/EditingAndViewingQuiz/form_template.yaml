@@ -9,8 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: back_button
-    properties: {text: Back, visible: true, enabled: true, align: left, italic: true,
-      role: filled-button}
+    properties: {text: Back, visible: true, enabled: true, align: left, italic: true, role: filled-button}
     type: Button
     layout_properties: {grid_position: 'VBVJUY,ZEBVSU'}
     event_bindings: {click: back_button_click}
@@ -43,8 +42,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'TWXLRT,AFLLZJ'}
   - name: card_filter
-    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}',
-      background: '#b5b0ba', visible: false}
+    properties: {role: outlined-card, border: '#00FFFFFF', col_widths: '{"ZJWAFU":10,"RJTUQY":15,"OAPSBS":15,"KTPYME":20}', background: '#b5b0ba', visible: false}
     type: ColumnPanel
     layout_properties: {grid_position: 'PDBKLY,TDWQCA'}
     components:
@@ -62,8 +60,7 @@ components:
       layout_properties: {grid_position: 'ASRHMR,RJTUQY XKRONB,QKJDGA'}
       event_bindings: {change: drop_down_topicsList_change}
     - name: label_1_copy
-      properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter',
-        role: null, foreground: '#0f97ff', background: '', italic: false}
+      properties: {text: 'Filter:', align: center, bold: true, icon: 'fa:filter', role: null, foreground: '#0f97ff', background: '', italic: false}
       type: Label
       layout_properties: {grid_position: 'ASRHMR,ZJWAFU VRQJUL,PCJHIT'}
     - name: label_2_copy_copy
@@ -104,13 +101,11 @@ components:
       type: RepeatingPanel
       layout_properties: {grid_position: 'CCYFGE,LMPUMQ'}
     - name: label_noResults
-      properties: {align: center, text: No Results Found, foreground: '#c2c2c2', bold: false,
-        underline: false, font_size: 20, italic: true, visible: false}
+      properties: {align: center, text: No Results Found, foreground: '#c2c2c2', bold: false, underline: false, font_size: 20, italic: true, visible: false}
       type: Label
       layout_properties: {grid_position: 'GQYYFC,CLWBES'}
   - name: button_saveQuiz
-    properties: {text: Save Changes, role: outlined-button, background: '#0aefff',
-      bold: true, foreground: 'theme:On Primary', visible: true, icon: 'fa:save'}
+    properties: {text: Save Changes, role: outlined-button, background: '#0aefff', bold: true, foreground: 'theme:On Primary', visible: true, icon: 'fa:save'}
     type: Button
     layout_properties: {grid_position: 'HLNMLH,JKBLWI'}
     event_bindings: {click: button_saveQuiz_click}

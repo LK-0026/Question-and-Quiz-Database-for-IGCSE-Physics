@@ -60,8 +60,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'IIMXKV,CRANBH'}
   - name: check_box_add
-    properties: {text: Add, bold: true, font: Calibri, font_size: 18, align: center,
-      background: '#ffa200', foreground: 'theme:On Primary'}
+    properties: {text: Add, bold: true, font: Calibri, font_size: 18, align: center, background: '#ffa200', foreground: 'theme:On Primary'}
     type: CheckBox
     layout_properties: {grid_position: 'IIMXKV,HVOJIW'}
     data_bindings: []

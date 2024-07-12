@@ -70,7 +70,7 @@ class QuizzesList(QuizzesListTemplate):
                             }
                           }
                         ]
-                      },
+                       },
                       headers = {'Authorization': 'Bearer ' + accessToken}
     )
 

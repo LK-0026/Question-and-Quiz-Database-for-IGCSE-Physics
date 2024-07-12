@@ -53,7 +53,8 @@ class QuizzesList(QuizzesListTemplate):
     formID = createGFormResponse["formId"]
     
     #Converts the google form into a quiz
-    #Use of batchUpdate method from Google's documentation Google Form API, Link: https://developers.google.com/forms/api/reference/rest/v1/forms/batchUpdate
+    #Use of batchUpdate method from Google's documentation Google Form API
+    #Link: https://developers.google.com/forms/api/reference/rest/v1/forms/batchUpdate
     anvil.http.request(f"https://forms.googleapis.com/v1/forms/{formID}:batchUpdate", method = "POST", json = True,
                       data = 
                        {
@@ -70,7 +71,8 @@ class QuizzesList(QuizzesListTemplate):
                           }
                         ]
                       },
-                      headers = {'Authorization': 'Bearer ' + accessToken})
+                      headers = {'Authorization': 'Bearer ' + accessToken}
+    )
 
     #Stores the json data for the questions to be added into the google form
     jsonDataAddQuestion = {"requests": []}
